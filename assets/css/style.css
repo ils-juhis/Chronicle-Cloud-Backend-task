@@ -1,0 +1,166 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Open Sans;
+}
+
+/**********************************basic css for page layout for login, register, forgot password****************************************/
+.main{
+    background-image: url("../images/Bg.png");
+    background-color: black;
+    background-repeat: none;
+    background-size: cover;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+
+.info{
+    font-size: 14px;
+}
+
+.logo>img{
+    width: 400px;
+}
+
+.form-container{
+    width: 50%;
+}
+
+.card .content{
+    font: normal normal normal 18px/24px Open Sans;
+}
+
+.card-description>.credentials .input-grp{
+    width: 100%;
+    border: 1px solid #DDDDDD;
+    margin: 10px 0 0 0;
+    padding: 10px;
+    border-radius: 6px;
+    background: #F7FAFF 0% 0% no-repeat padding-box;
+}
+
+.card-description>.credentials input:not(input[type="radio"]){
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 80%;
+}
+
+
+.card-description>.credentials button[type="submit"]{
+    outline: none;
+    width: 100%;
+    border: none;
+    background: transparent linear-gradient(270deg, #386CB5 0%, #669FED 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 5px #386CB566;
+    border-radius: 6px;
+    color: white;
+    padding: 10px 0;
+}
+
+#password-eye{
+    cursor: pointer;
+    color: gray;
+}
+
+#register{
+    border: none;
+    outline: none;
+    background: #FEC006 0% 0% no-repeat padding-box;
+    box-shadow: 0px 1px 10px #0000001A;
+    border-radius: 6px;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#invalid-message{
+    color: red;
+    font-size: 12px;
+    font-weight: 700;
+    display: none;
+}
+
+
+.form-container>.content{
+    width: 500px;
+}
+
+.form-container .forgot{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+.card-heading{
+    font-family: Open Sans, Bold;
+    font: normal normal bold 24px/33px Open Sans !important;
+}
+
+
+@media screen and (min-width: 1920px) {
+    .card .content{
+    font: normal normal normal 18px/24px Open Sans;
+}
+
+  }
+
+
+  @media screen and (max-width: 1700px) {
+    .card .content{
+        font: normal normal normal 14px Open Sans;
+    }
+    
+    .info{
+        font-size: 11px ;
+    }
+  }
+
+
+@media screen and (min-width: 1400px) {
+   
+  }
+
+
+  @media screen and (max-width: 1200px) {
+    .logo>img{
+        width: 300px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    
+  }
+
+  @media screen and (min-width: 992px) {
+    
+  }
+
+  @media screen and (min-width: 768px) {
+    
+  }
+
+  @media screen and (max-width: 576px) {
+    .form-container>.content{
+        width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+
+    .logo>img{
+        width: 250px;
+    }
+    
+    .card-description>.credentials .input-grp{
+        margin: 7px 0 0 0;
+        padding: 7px;
+        font-size: 15px;
+    }
+
+    .form-container>.content{
+        font-size: 14px;
+    }
+    
+  }
