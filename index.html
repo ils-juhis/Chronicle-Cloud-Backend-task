@@ -4,115 +4,70 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!------------------external CSS-------------------->
     <link rel="stylesheet" href="./assets/css/style.css">
+    <!------------------Tab Icon-------------------->
     <link rel="icon" href="./assets/images/cloud.png" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    <!------------------Bootstrap-------------------->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/0c9e474dd2.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!------------------Font Awsome-------------------->
+    <script src="https://kit.fontawesome.com/0c9e474dd2.js" crossorigin="anonymous"></script>
     <title>Chronicle cloud</title>
 </head>
 <body>
     <div class="main">
         <div class="row m-0 mt-5 mt-lg-0 h-100 align-items-lg-center">
 
-            <div class="logo col-12 col-lg-5 col-xl-6 text-center  my-5 my-md-auto">
+            <div class="logo col-12 col-lg-5 col-xl-6 text-center py-5 my-auto">
                 <img src="./assets/images/logo.svg" alt="">
             </div>
 
-            <!-- <div class="form-container col-12 col-lg-7 col-xl-6 ">
-                <div class="content mx-auto mx-lg-0">
-                    <div class="card-group mb-3 shadow">
-                        <div class="card p-4 p-sm-5">
+            <div class="form-container col-12 col-lg-7 col-xl-6  my-auto">
+                <div class="content mx-auto  ms-lg-5 my-5">
+                    <div class="card-group mb-3">
+                        <div class="card shadow">
                             
-                            <div class="card-heading  text-uppercase mb-3"> Login </div>  
-                            <form class="card-description" id="login-form">
-                                <div class="content text-muted mb-3"> Enter your email address and password to get access your account. </div>
+                            <div class="card-heading  text-uppercase mb-2"> Login </div>  
+                            <form class="card-description " id="login-form">
+                                <div class="content text-muted mb-4"> Enter your email address and password to get access your account. </div>
                                 <div class="credentials">
                                     <div>
                                         <div class="input-grp">
-                                            <label for="email" class="pe-2"> <img src="./assets/images/email.svg" alt="" ></label>
-                                            <input type="email" name="email" id="input-email" autocomplete="off" placeholder="Email" required onkeyup="validateEmail(event)" >
+                                            <label for="email" class="p-2"> <img src="./assets/images/email.svg" alt="" ></label>
+                                            <div class="input-wrapup">
+                                                <input type="text" name="email" id="input-email" autocomplete="off" onkeyup="validateEmail(event)" required="required">
+                                                <span class="moving-label">Email</span>
+                                            </div>
                                         </div>
-                                        <div class="pt-1" id="invalid-message">*Please enter valid email address.</div>
+                                        <div class="pt-1 invalid-message" id="invalid-email">&nbsp;</div>
                                     </div>
-                                    <br>
-                                    <div class="input-grp">
-                                        <label for="password" class="pe-2"> <img src="./assets/images/padlock.svg" alt=""> </label>
-                                        <input type="password" id="input-password" placeholder="Password">
-                                        <span class="pe-2 float-end" id="password-eye" onclick="toggleEye()"><i class="fa-solid fa-eye-slash"></i></span>
-                                    </div>
-                                    <div class="rem-forget d-flex justify-content-between my-3 ">
-                                        <div>
-                                            <input type="radio" name="remember" id="">
-                                            <span>Remember me</span>
+
+                                    <div>
+                                        <div class="input-grp">
+                                            <label for="password" class="p-2"> <img src="./assets/images/padlock.svg" alt=""> </label>
+                                            <div class="input-wrapup">
+                                                <input type="password" name="password" id="input-password"  autocomplete="off" onkeyup="validatePassword(event)" required="required">
+                                                <span class="moving-label">Password</span>
+                                            </div>
+                                            <span class="float-end" id="password-eye" onclick="toggleEye(event)"><i class="fa-solid fa-eye"></i></span>
                                         </div>
+                                        <div class="pt-1 invalid-message" id="invalid-password">&nbsp;</div>
+                                    </div>
+                                    
+                                    <div class="rem-forget d-flex justify-content-between my-2">
+                                        <div class="form-check ">
+                                            <input class="form-check-input shadow-none rounded-circle" style="border-color: #00000033 !important;" type="checkbox" value="" id="flexCheckIndeterminate">
+                                            <label class="form-check-label" for="flexCheckIndeterminate">
+                                              Remember Me
+                                            </label>
+                                          </div>
                                         <a class="forgot text-primary fw-bold" href="./forgot_pwd.html">   Forgot Password?    </a>
                                     </div>
                                     <button class="text-uppercase mt-2" type="submit">Login</button>
-                                    <div class="d-flex justify-content-between pt-5 align-items-center">
-                                        <span class="fw-bold">Don't have an account?</span>
-                                        <button class="text-uppercase" id="register">Register now</button>
-                                    </div>
-                                </div>
-                            </form> 
-                        </div>
-                    </div>
-                    <div class="info text-center">
-                        <div>  © 2022 All rights reserved | Built for Chronicle Cloud. </div> 
-                        <div class="fw-bold"> Powered with Synapse Xtreme Engine (SXE) </div>
-                    </div>
-                </div>
-            </div> -->
-
-            <div class="form-container col-12 col-lg-7 col-xl-6 ">
-                <div class="content mx-auto mx-lg-0">
-                    <div class="card-group mb-3 shadow">
-                        <div class="card p-4 p-sm-5">
-                            
-                            <div class="card-heading  text-uppercase mb-3"> Registration </div>  
-                            <form class="card-description" id="login-form">
-                                <div class="reg-steps row g-0 m-0 pb-3">
-                                    <div class="col-6">
-                                        <div class="txt active">Step 01</div>
-                                        <div class="underline active"></div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="txt">Step 02</div>
-                                        <div class="underline"></div>
-                                    </div>
-                                </div>
-                                <div class="credentials">
-                                    <div>
-                                        <div class="d-flex">
-                                            <div class="input-grp me-3">
-                                                <input type="text" name="fname" placeholder="First Name" required>
-                                            </div>
-                                            <div class="input-grp">
-                                                <input type="email" name="lname" placeholder="Last Name" required>
-                                            </div>
-                                        </div>
-                                        <div class="pt-1" id="invalid-message">*Please enter aleast 3 characters.</div>
-                                    </div>
-
-                                    <div>
-                                        <div class="input-grp">
-                                            <input type="email" name="email" id="input-email" placeholder="Email" required>
-                                        </div>
-                                        <div class="pt-1" id="invalid-message">*Please enter valid email address.</div>
-                                    </div>
-                                    <br>
-                                    <div class="input-grp">
-                                        <label for="password" class="pe-2"> <img src="./assets/images/padlock.svg" alt=""> </label>
-                                        <input type="password" id="input-password" placeholder="Password">
-                                        <span class="pe-2 float-end" id="password-eye"><i class="fa-solid fa-eye-slash"></i></span>
-                                    </div>
-                                    
-                                    <button class="text-uppercase mt-2" type="submit">Login</button>
-                                    <hr>
-                                    <div class="d-flex justify-content-between pt-5 align-items-center">
-                                        <span class="fw-bold">Do have an account?</span>
-                                        <button class="text-uppercase" id="register">Login</button>
+                                    <div class="d-flex justify-content-between pt-4 align-items-center">
+                                        <div class="fw-bold" >Don't have an account?</div>
+                                        <button class="text-uppercase" id="register" onclick="window.location.href='register.html';">Register now</button>
                                     </div>
                                 </div>
                             </form> 

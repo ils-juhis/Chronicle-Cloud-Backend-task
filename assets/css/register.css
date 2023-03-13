@@ -19,54 +19,54 @@
 
 .form-container{
     width: 50%;
+    height: 100vh;
+}
+
+
+.form-container>.content{
+    width: 400px;
 }
 
 .form-container .card{
+    padding:40px 30px 15px;
     border-radius: 20px !important;
-    padding:40px 30px ;
-}
-
-.form-container .forgot{
-    cursor: pointer;
-    text-decoration: none;
 }
 
 .card .content{
     font: normal normal normal 18px/24px Open Sans;
 }
 
-.form-container>.content{
-    width: 400px;
-}
 
 .card-heading{
     font-family: Open Sans, Bold;
     font: normal normal bold 24px/33px Open Sans !important;
 }
 
+
 /**************************CSS for input fields*******************************/
 .card-description>.credentials .input-grp{
     position: relative;
     width: 100%;
     border: 1px solid #DDDDDD;
-    margin: 7px 0 0 0;
+    margin: 4px 0 0 0;
     border-radius: 6px;
     background: #F7FAFF 0% 0% no-repeat padding-box;
     display: flex;
     align-items: center;
-    overflow: hidden;
+    height: 48px;
 }
 
 
-.card-description>.credentials input:not(input[type="checkbox"]){
+.card-description>.credentials input:not(input[type="tel"]):not(input[type="checkbox"]){
     background-color: transparent;
-    padding: 27px 10px 4px;
+    padding: 25px 10px 4px;
     border: none;
     outline: none;
     width: 100%;
     position:sticky;
     z-index: 999;
 }
+
 .card-description>.credentials .input-grp:focus-within{
     border-bottom: 1px solid #386CB5;
 } 
@@ -79,23 +79,22 @@
     bottom: 0;
     width:100%;
     height: 0;
+    z-index: 999999;
 }
 
 .card-description>.credentials button[type="submit"]{
     outline: none;
-    width: 100%;
     border: none;
     background: transparent linear-gradient(270deg, #386CB5 0%, #669FED 100%) 0% 0% no-repeat padding-box;
     box-shadow: 0px 0px 5px #386CB566;
     border-radius: 6px;
     color: white;
-    padding: 10px 0;
+    padding: 10px;
 }
 
-#password-eye{
+.password-eye{
     cursor: pointer;
     color: gray;
-    margin: 0 13px;
 }
 
 #register{
@@ -105,11 +104,13 @@
     box-shadow: 0px 1px 10px #0000001A;
     border-radius: 6px;
     color: white;
-    padding: 10px 15px;
+    padding: 10px;
     cursor: pointer;
 }
 
-.invalid-message{
+#invalid-phone,#invalid-password, 
+#invalid-cpassword, #invalid-name, 
+#invalid-email, #invalid-password{
     color: red;
     font-size: 10px;
     font-weight: 700;
@@ -119,6 +120,7 @@
 .input-wrapup{
     position: relative;
     width: 100%;
+    height: 48px;
     color: rgb(38, 38, 38);
     font-weight: 500;
 }
@@ -132,7 +134,7 @@
  }
 
  .input-wrapup input:focus + .moving-label, .input-wrapup input:not(focus):valid + .moving-label{
-    top: -7px;
+    top: -10px;
     color: rgb(107, 107, 107);
     font-size: 12px;
     transition: all ease 0.25s;
@@ -141,6 +143,110 @@
 .info{
     font-size: 14px;
 }
+
+
+/********************registration css ****************************/
+
+.reg-steps{
+    font: normal normal 600 15px/20px Open Sans;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+}
+
+
+.reg-steps .txt{
+    text-align: center;
+    margin: 7px;
+    color: #AFC4E1;
+}
+
+.reg-steps .underline{
+    background: #AFC4E1 0% 0% no-repeat padding-box;
+    height: 4px;
+    border-radius: 2px;
+    margin: 7px;
+    transition: all ease 1s;
+
+}
+
+.reg-steps .tab-indicator.active .txt{
+    color: #386CB5;
+}
+.reg-steps .tab-indicator.active .underline{
+    background: #386CB5 0% 0% no-repeat padding-box;
+}
+
+#login{
+    border: none;
+    outline: none;
+    background: #FEC006 0% 0% no-repeat padding-box;
+    box-shadow: 0px 1px 10px #0000001A;
+    border-radius: 6px;
+    color: white;
+    padding: 10px 55px;
+    cursor: pointer;
+}
+
+
+#next-btn{
+    outline: none;
+    border: none;
+    background: transparent linear-gradient(270deg, #386CB5 0%, #669FED 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 5px #386CB566;
+    border-radius: 6px;
+    color: white;
+    padding: 10px 30px;
+}
+
+#back-btn{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #222222;
+    font-weight: 600;
+}
+
+#mob-input{
+    border-radius: 10px 0 0 10px;
+    border-right: 1px solid #DDDDDD;
+    align-items: center;
+    height: inherit;
+}
+
+.tab{
+    display: none;
+}
+
+/*****************phone input CSS *****************/
+.tel-input-wrapup{
+    height: 100%;
+}
+.iti{
+    width: 100%;
+    z-index: 99999;
+    height: 100%;
+}
+
+.iti__flag-container>div{
+    background-color: transparent !important;
+    font-weight: bolder;
+}
+
+.iti__flag-container{
+  background-color: white;
+  border-radius: 6px 0 0 6px;
+  border-right: 1px solid #DDDDDD;
+}
+
+#phone{
+    outline: none;
+    border: none;
+    width: 100%;
+    background-color: transparent;
+    height: 100%;
+    margin-left: 10px;
+}
+
 
 @media screen and (min-width: 1920px) {
     .form-container>.content{
@@ -186,14 +292,10 @@
         font: normal normal bold 20px Open Sans !important;
     }
 
-    .card-description>.content{
-        font-size: 13px;
+    .card .content{
+        font: normal normal normal 13px Open Sans;
     }
 
-    .card-description>.credentials{
-        font-size: 13px;
-    }
-    
     .invalid-message{
         font-size: 10px;
     }

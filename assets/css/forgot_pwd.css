@@ -21,22 +21,13 @@
     width: 50%;
 }
 
-.form-container .card{
-    border-radius: 20px !important;
-    padding:40px 30px ;
-}
-
-.form-container .forgot{
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.card .content{
-    font: normal normal normal 18px/24px Open Sans;
-}
-
 .form-container>.content{
     width: 400px;
+}
+
+.form-container .card{
+    padding:40px 30px ;
+    border-radius: 20px !important;
 }
 
 .card-heading{
@@ -45,11 +36,15 @@
 }
 
 /**************************CSS for input fields*******************************/
+.card .content{
+    font: normal normal normal 18px/24px Open Sans;
+}
+
 .card-description>.credentials .input-grp{
     position: relative;
     width: 100%;
     border: 1px solid #DDDDDD;
-    margin: 7px 0 0 0;
+    margin: 10px 0 0 0;
     border-radius: 6px;
     background: #F7FAFF 0% 0% no-repeat padding-box;
     display: flex;
@@ -58,7 +53,7 @@
 }
 
 
-.card-description>.credentials input:not(input[type="checkbox"]){
+.card-description>.credentials input:not(input[type="radio"]){
     background-color: transparent;
     padding: 27px 10px 4px;
     border: none;
@@ -81,40 +76,29 @@
     height: 0;
 }
 
+
 .card-description>.credentials button[type="submit"]{
     outline: none;
     width: 100%;
     border: none;
     background: transparent linear-gradient(270deg, #386CB5 0%, #669FED 100%) 0% 0% no-repeat padding-box;
     box-shadow: 0px 0px 5px #386CB566;
-    border-radius: 6px;
+    border-radius: 6px; 
     color: white;
     padding: 10px 0;
 }
 
-#password-eye{
-    cursor: pointer;
-    color: gray;
-    margin: 0 13px;
-}
 
-#register{
-    border: none;
-    outline: none;
-    background: #FEC006 0% 0% no-repeat padding-box;
-    box-shadow: 0px 1px 10px #0000001A;
-    border-radius: 6px;
-    color: white;
-    padding: 10px 15px;
-    cursor: pointer;
-}
-
-.invalid-message{
+#invalid-email{
     color: red;
     font-size: 10px;
     font-weight: 700;
 }
 
+.form-container .forgot{
+    cursor: pointer;
+    text-decoration: none;
+}
 
 .input-wrapup{
     position: relative;
@@ -131,16 +115,13 @@
     z-index: 998;
  }
 
- .input-wrapup input:focus + .moving-label, .input-wrapup input:not(focus):valid + .moving-label{
+.input-wrapup input:focus + .moving-label, .input-wrapup input:not(focus):valid + .moving-label{
     top: -7px;
     color: rgb(107, 107, 107);
     font-size: 12px;
     transition: all ease 0.25s;
 }
 
-.info{
-    font-size: 14px;
-}
 
 @media screen and (min-width: 1920px) {
     .form-container>.content{
