@@ -29,7 +29,7 @@
                         <div class="card shadow">
                             
                             <div class="card-heading  text-uppercase mb-2"> Login </div>  
-                            <form class="card-description " id="login-form">
+                            <form class="card-description " id="login-form" action="dashboard.html" method="post">
                                 <div class="content text-muted mb-4"> Enter your email address and password to get access your account. </div>
                                 <div class="credentials">
                                     <div>
@@ -57,14 +57,14 @@
                                     
                                     <div class="rem-forget d-flex justify-content-between my-2">
                                         <div class="form-check ">
-                                            <input class="form-check-input shadow-none rounded-circle" style="border-color: #00000033 !important;" type="checkbox" value="" id="flexCheckIndeterminate">
+                                            <input class="form-check-input shadow-none rounded-circle" type="checkbox" value="" id="flexCheckIndeterminate" required>
                                             <label class="form-check-label" for="flexCheckIndeterminate">
                                               Remember Me
                                             </label>
                                           </div>
                                         <a class="forgot text-primary fw-bold" href="./forgot_pwd.html">   Forgot Password?    </a>
                                     </div>
-                                    <button class="text-uppercase mt-2" type="submit">Login</button>
+                                    <button class="text-uppercase mt-2" type="submit" onclick="validateForm(event, 'login-form')">Login</button>
                                     <div class="d-flex justify-content-between pt-4 align-items-center">
                                         <div class="fw-bold" >Don't have an account?</div>
                                         <button class="text-uppercase" id="register" onclick="window.location.href='register.html';">Register now</button>

@@ -29,7 +29,7 @@
                         <div class="card shadow">
                             
                             <div class="card-heading  text-uppercase mb-3"> Forgot password </div>  
-                            <form class="card-description" id="forgot-email-form">
+                            <form class="card-description" id="forgot-email-form" method="post">
                                 <div class="content text-muted mb-4"> Enter your registered email address. We will email you a new password for your account. </div>
                                 <div class="credentials">
                                     <div>
@@ -43,7 +43,7 @@
                                         <div class="pt-1" id="invalid-email">&nbsp;</div>
                                     </div>
                                     <br>
-                                    <button class="text-uppercase" id="submit-btn" type="submit">Retrive password</button>
+                                    <button class="text-uppercase" id="submit-btn" type="submit" onclick="validateForm(event, 'forgot-email-form')">Retrive password</button>
                                 </div>
                             </form> 
                         </div>

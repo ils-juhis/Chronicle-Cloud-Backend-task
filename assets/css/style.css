@@ -6,7 +6,6 @@
 
 .main{
     background-image: url("../images/Bg.png");
-    background-color: black;
     background-repeat: none;
     background-size: cover;
     height: 100vh;
@@ -136,6 +135,11 @@
     color: rgb(107, 107, 107);
     font-size: 12px;
     transition: all ease 0.25s;
+}
+
+.form-check-input:checked {
+    border-color: #00000033 !important; 
+    background-color: #08D152 !important;
 }
 
 .info{

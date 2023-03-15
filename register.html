@@ -81,7 +81,7 @@
                                     <div>
                                         <div class="input-grp">
                                             <div class="tel-input-wrapup">
-                                                <input id="phone" type="tel" placeholder="Mobile Number" name="phone" maxlength="10" id="input-phone" autocomplete="off" required onkeypress="return onlyNumberKey(event)"/>
+                                                <input id="phone" type="tel" placeholder="Mobile Number" name="phoneNo" maxlength="10" id="input-phone" autocomplete="off" required onkeypress="return onlyNumberKey(event)"/>
                                             </div>
                                         </div>
                                         <div id="invalid-phone">&nbsp;</div>
@@ -114,13 +114,13 @@
                                     </div>
                                     
                                     <div class="text-end my-4">
-                                        <button type="button" id="next-btn" onclick="nextPrev(1)"> Next Step</button>
+                                        <button type="button" id="next-btn" onclick="nextPrev(event, 1)"> Next Step</button>
                                     </div>
                                     
                                     <hr>
                                     <div class=" mt-4 d-flex justify-content-between align-items-center">
                                         <span class="fw-bold">Do have an account?</span>
-                                        <button class="text-uppercase" id="login"  onclick="window.location.href='index.html';">Login</button>
+                                        <button class="text-uppercase" id="login" type="button"  onclick="window.location.href='index.html';">Login</button>
                                     </div>
                                 </div>
 
@@ -130,11 +130,11 @@
                                     <div>
                                         <div class="input-grp">
                                             <div class="input-wrapup">
-                                                <input type="text" name="school" id="input-school" autocomplete="off" required>
+                                                <input type="text" name="schoolName" id="input-schoolName" autocomplete="off" required>
                                                 <span class="moving-label">School / University / Institute Name*</span>
                                             </div>
                                         </div>
-                                        <div id="invalid-email">&nbsp;</div>
+                                        <br>
                                     </div>
 
                                     <div>
@@ -144,7 +144,7 @@
                                                 <span class="moving-label">State*</span>
                                             </div>
                                         </div>
-                                        <div id="invalid-email">&nbsp;</div>
+                                        <br>
                                     </div>
 
                                     <div>
@@ -154,22 +154,22 @@
                                                 <span class="moving-label">Country*</span>
                                             </div>
                                         </div>
-                                        <div id="invalid-email">&nbsp;</div>
+                                        <br>
                                     </div>
 
                                     <div>
                                         <div class="input-grp">
                                             <div class="input-wrapup">
-                                                <input type="text" name="zipCodes" id="input-zip" autocomplete="off" required>
+                                                <input type="text" name="zipCode" id="input-zipCode" autocomplete="off" required>
                                                 <span class="moving-label">Zip Code*</span>
                                             </div>
                                         </div>
-                                        <div id="invalid-email">&nbsp;</div>
+                                        <div id="invalid-fields">&nbsp;</div>
                                     </div>
 
                                     <div class="rem-forget d-flex justify-content-between my-2 ">
                                         <div class="form-check ">
-                                            <input class="form-check-input shadow-none rounded-circle" style="border-color: #00000033 !important;" type="checkbox" value="" id="flexCheckIndeterminate">
+                                            <input class="form-check-input shadow-none rounded-circle" style="border-color: #00000033 !important;" type="checkbox" value="" id="condition-check" required>
                                             <label class="form-check-label" for="flexCheckIndeterminate">
                                                 I agree to the 
                                                 <a href="#" class="fw-bold text-decoration-none text-primary">Terms of service</a> 
@@ -179,8 +179,8 @@
                                           </div>
                                     </div>
                                     <div class="d-flex justify-content-between my-4">
-                                        <button type="button" id="back-btn" onclick="nextPrev(-1)"> <img src="./assets/images/arrow-right.svg" alt=""> &nbsp; Step Back </button>
-                                        <button type="submit" id="" onclick="window.location.href='dashboard.html';">Create Account</button>
+                                        <button type="button" id="back-btn" onclick="nextPrev(event, -1)"> <img src="./assets/images/arrow-right.svg" alt=""> &nbsp; Step Back </button>
+                                        <button type="submit" id="" onclick="validateRegisterForm(event, 1, true)">Create Account</button>
                                     </div>
 
                                 </div>

@@ -110,7 +110,8 @@
 
 #invalid-phone,#invalid-password, 
 #invalid-cpassword, #invalid-name, 
-#invalid-email, #invalid-password{
+#invalid-email, #invalid-password,
+#invalid-fields{
     color: red;
     font-size: 10px;
     font-weight: 700;
@@ -236,6 +237,8 @@
   background-color: white;
   border-radius: 6px 0 0 6px;
   border-right: 1px solid #DDDDDD;
+  z-index: 999999;
+
 }
 
 #phone{
