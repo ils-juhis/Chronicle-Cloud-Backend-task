@@ -19,56 +19,203 @@
 <body>
     <div class="blue-background"></div>
     <div class="main">
-        <div class="row h-100 g-0">
-            <div class="col-2 p-4">
-                <nav >
-                    <div class="text-center pt-4 px-4">
-                        <img class="py-2" src="./assets/images/cc.svg" alt="">
-                        <hr>
+        <div class="p-2 h-100 nav-container">
+            <aside>
+                <div id="close-btn" class=" d-lg-none text-end pe-3 pt-3"><i class="fa-solid fa-xmark"></i></div>
+                <div class=" logo text-center pt-lg-4 px-xl-4">
+                    <img width="80%" class="py-2" src="./assets/images/cc.svg" alt="">
+                    <hr>
+                </div>
+                <div>
+                    <div class="link-box active">
+                        <a href="#" class="aside-link"> 
+                            <span class="aside-icon"><i class="fa-solid fa-grip"></i></span> 
+                            <span>Dashboard</span>
+                        </a>
                     </div>
+                    <div class="link-box">
+                        <a href="#" class="aside-link"> 
+                            <span class="aside-icon"><i class="fa-solid fa-school"></i></span> 
+                            <span>Manage Schools</span>
+                        </a> 
+                    </div>
+                    <div class="link-box">
+                        <a href="#" class="aside-link"> 
+                            <span class="aside-icon"><i class="fa-solid fa-user-tie"></i></span> 
+                            <span>Manage Teacher</span> 
+                        </a>
+                    </div>
+                    <div class="link-box">
+                        <a href="#" class="aside-link"> 
+                            <span class="aside-icon"><i class="fa-solid fa-user"></i></span>
+                            <span>Manage Rosters </span>
+                        </a>
+                    </div>
+                    <div class="link-box">
+                        <a href="#" class="aside-link"> 
+                            <span class="aside-icon"><i class="fa-solid fa-clipboard-user"></i></span>
+                            <span> Manage Classes </span>
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        <div class="content-container p-2 px-3">
+            <nav class="px-lg-4 py-2 pb-4 d-flex justify-content-between">
+                <span id="toggle-btn" class="d-lg-none me-4" aria-expanded="false"><i class="fa-solid fa-bars "></i></span>
+                <div class="d-flex justify-content-end justify-content-md-between w-100" >
+                    <div class="text-light fw-bold d-none d-md-inline-block">
+                        Dashboard
+                    </div>
+                    <div class="d-flex" >
+                        <div class="add-school text-uppercase"> <i class="fa-solid fa-plus"></i> &nbsp; Add New School</div>
+                        <div class="bell-icon mx-4 position-relative"> 
+                            <span class="rounded-circle">1</span>
+                            <img src="./assets/images/bell.svg" alt="">
+                        </div>
+                        <div id="user-dropdown" aria-expanded="false">
+                            <div class="d-flex text-white align-items-center justify-content-between" >
+                                <div >
+                                    <span id="user-photo"><img width="30px" src="./assets/images/profile.jpg" alt=""></span>
+                                    <span id="user-name my-auto"> Juhi Sahu &nbsp; </span>
+                                </div>
+                                <i class="fa-solid fa-angle-down my-auto"></i>
+                            </div>
+                            <div id="user-options">
+                                <a href="#"><i class="fa-regular fa-user"></i> &nbsp; View Profile</a>
+                                <a href="#"><i class="fa-solid fa-globe"></i> &nbsp; Visit Website</a>
+                                <a href="#"><i class="fa-solid fa-circle-question"></i> &nbsp; Help Center</a>
+                                <a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i> &nbsp; Sign Out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="count-box d-flex align-items-center">
+                <div class="count-items d-flex">
                     <div>
-                         <ul class="p-0 m-0">
-                            <li class="active"> 
-                                <a href="#" class="nav-heading"> 
-                                    <span class="nav-icon"><i class="fa-solid fa-grip"></i></span> 
-                                    <span>Dashboard</span>
-                                </a>
-                            </li>
-                            <li> 
-                                <a href="#" class="nav-heading"> 
-                                    <span class="nav-icon"><i class="fa-solid fa-school"></i></span> 
-                                    <span>Manage Schools</span>
-                                </a> 
-                            </li>
-                            <li> 
-                                <a href="#" class="nav-heading"> 
-                                    <span class="nav-icon"><i class="fa-solid fa-user-tie"></i></span> 
-                                    <span>Manage Teacher</span> 
-                                </a>
-                            </li>
-                            <li> 
-                                <a href="#" class="nav-heading"> 
-                                    <span class="nav-icon"><i class="fa-solid fa-user"></i></span>
-                                    <span>Manage Rosters </span>
-                                </a>
-                            </li>
-                            <li> 
-                                <a href="#" class="nav-heading"> 
-                                    <span class="nav-icon"><i class="fa-solid fa-clipboard-user"></i></span>
-                                    <span> Manage Classes </span>
-                                </a>
-                            </li>
-                         </ul>
+                        <div> School Count</div>
+                        <div> 04 <span>Active</span></div>
+                        <div>Total Schools: 12</div>
                     </div>
-                </nav>
+                    <div class="icon">
+                        <i class="fa-solid fa-school"></i>
+                    </div>
+                </div>
+                <div class="count-items d-flex">
+                    <div>
+                        <div> Teacher Count</div>
+                        <div> 84 <span>Active</span></div>
+                        <div>Total Teachers: 98</div>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                </div>
+                <div class="count-items d-flex">
+                    <div>
+                        <div> Roster Count</div>
+                        <div> 1256 <span>Active</span></div>
+                        <div>Total Roster: 11370</div>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-solid fa-user"></i></span>
+                    </div>
+                </div>
+                <div class="count-items d-flex">
+                    <div>
+                        <div> class Count</div>
+                        <div> 76 <span>Active</span></div>
+                        <div>Total Classes: 79</div>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-solid fa-clipboard-user"></i>
+                    </div>
+                </div>
             </div>
-            <div class="col-10">
-                <main class="m-4">
-                    
-                    content
-                </main>
-            </div>
+<!-- 
+            <div id="graph-box" class="mb-4">
+                <div class="graphs">
+                    <div class="heading">Rosters | Teachers </div>
+                    <div class="position-relative">
+                        <div id="bar-chart-labels"></div>
+                        <canvas id="bar-chart" ></canvas>
+                    </div>
+                </div>
+                <div class="graphs">
+                    <div class="heading"> Data Usage</div>
+                    <div class="position-relative">
+                        <div>
+                            <canvas id="pie-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <!---------------table------------------->
+            <!-- <div>
+                <div class="table-responsive school-table ">
+                    <table class="table table-hover caption-top">
+                        <caption class="fw-bold text-dark">School List</caption>
+                        <thead>
+                          <tr>
+                            <th scope="col">Logo</th>
+                            <th scope="col">School Name</th>
+                            <th scope="col">School Contact</th>
+                            <th scope="col">School Size &nbsp; <i style="color: black; font-size: 10px; text-transform: capitalize;">Roster / Teacher</i></th>
+                            <th scope="col">Data Usage</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row"> <img src="./assets/images/school_logo.png" alt=""></th>
+                            <td>School_Name, School name goes here…</td>
+                            <td>school_name@email.com <br> +91 731 987 321, +91 98765 43210</td>
+                            <td>176 / 12</td>
+                            <td>256/<span class="text-mute">500 mb</span></td>
+                            <td>Active</td>
+                            <td>
+                                <a href="#" class="text-decoration-none">
+                                    <i class="fa-solid fa-eye"></i> &nbsp; View
+                                </a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row"> <img src="./assets/images/school_logo.png" alt=""></th>
+                            <td>Queen’s College</td>
+                            <td>Queen'scollege@email.com <br> +91 731 987 321, +91 98765 43210</td>
+                            <td>225 / 18</td>
+                            <td>103/<span class="text-mute">500 mb</span></td>
+                            <td>Active</td>
+                            <td>
+                                <a href="#" class="text-decoration-none">
+                                    <i class="fa-solid fa-eye"></i> &nbsp; View
+                                </a>
+                            </td>
+                            <tr>
+                                <th scope="row"> <img src="./assets/images/school_logo.png" alt=""></th>
+                                <td>Golden International School</td>
+                                <td>Goldeninternationalschool@email.com <br> +91 731 987 321, +91 98765 43210</td>
+                                <td>364 / 30</td>
+                                <td>324/<span class="text-mute">500 mb</span></td>
+                                <td>Active</td>
+                                <td>
+                                    <a href="#" class="text-decoration-none">
+                                        <i class="fa-solid fa-eye"></i> &nbsp; View
+                                    </a>
+                                </td>
+                              </tr>
+                        </tbody>
+                  </table>
+                </div>
+            </div>         -->
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./assets/js/dashboard.js"></script>
 </body>
 </html>
