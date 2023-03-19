@@ -36,16 +36,17 @@ for(let i=0; i<asideLink.length; i++){
     asideLink[i].addEventListener("click", closeSidebar)
 }
 
-//outside click
-let menu = document.getElementById('menu');
+//outside click for side bar
 let nav = document.getElementsByClassName("nav-container")[0];      
-document.addEventListener('click', function(event) {
-  if(hamburger.getAttribute("aria-expanded")===true && !event.target.isEqualNode(hamburger) && !event.target.isEqualNode(nav) && !nav.contains(event.target)) {
+document.addEventListener('click', function(e) {
+  console.log(e.target)
+  if (window.innerWidth< 998 && !nav.contains(e.target) && !hamburger.contains(e.target)) {
       closeSidebar();
   }
 });
 
 
+//open and close drop down list
 let userDropdown = document.getElementById("user-dropdown")
 userDropdown.addEventListener("click", ()=>{
     let userOptions = document.getElementById("user-options")
@@ -57,6 +58,18 @@ userDropdown.addEventListener("click", ()=>{
         userDropdown.setAttribute("aria-expanded", "true") 
     }
 })
+
+//outside click for drop down
+let DropBox = userDropdown.firstElementChild;
+let userOptions = document.getElementById("user-options")
+document.addEventListener('click', function(e) {
+  if (!userDropdown.contains(e.target)) {
+    if (userDropdown.getAttribute("aria-expanded") === "true"){
+      userOptions.style.display="none";
+      userDropdown.setAttribute("aria-expanded", "false")
+  }
+  }
+});
 
 
 //Bar graph JS
@@ -92,7 +105,8 @@ new Chart("bar-chart", {
             boxHeight: 6,
             borderRadius: "50",
             
-        }
+        },
+        
     },
       title: {
         display: false,

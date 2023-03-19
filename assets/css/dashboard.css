@@ -32,19 +32,20 @@ body{
         "navbar content";
 }
 
+/***********side bar***********/
 .nav-container{
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
     grid-area: navbar;
     z-index: 1;
 
 }
 
-.content-container{
-    grid-area: content;
-}
-
 .main aside{
     height: 100%;
+    width: 228px;
     position: relative;
     background-color: white;
     border-radius:  10px;
@@ -89,6 +90,11 @@ body{
     width: 5px;
 }
 
+/********main content************/
+.content-container{
+    grid-area: content;
+}
+
 nav{
     min-width: none;
 }
@@ -109,24 +115,20 @@ nav{
     height: fit-content;
 }
 
-.count-box{
-    flex-wrap: wrap;
-}
+/**********count items**********************/
 
 .count-items{
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 0px 1px 6px #0000001A;
     border-radius: 10px;
-    padding:15px;
-    margin: 0 15px 15px 0;
-    width: 250px;
     justify-content: space-between;
     transition: all ease 1s;
+    padding: 15px;
 }
 
-.count-items:hover{
+/* .count-items:hover{
     transform: scale(1.05);
-}
+} */
 
 .count-items>div div:nth-child(1){
     font: normal normal 600 16px/22px Open Sans;
@@ -173,12 +175,16 @@ nav{
     border-radius: 50%;
 }
 
+.bell-icon{
+    cursor: pointer;
+}
+
 .bell-icon span{
     position: absolute;
     right: -5px;
     top: -5px;
     text-align: center;
-    background-color: RED;
+    background-color: #F0142F;
     font-size: 10px;
     color: white;
     width: 13px;
@@ -199,7 +205,7 @@ nav{
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 4px;
     display: none;
-    width: 100%;
+    width: 180px;
 }
 
 #user-options a{
@@ -221,26 +227,19 @@ nav{
 }
 #user-name{
     color: white;
-    font-size: 14px;
-    margin: 0 7px;
+    font-size: 12px !important;
+    margin: auto 7px;
     overflow-x: hidden;
     display: inline-block;
-    width: 100px;
+    flex-basis: auto;
 }
 
-
-#graph-box{
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 30px;
-}
-
+/****************chart****************/
 .graphs{
     background-color: #FFFFFF;
     box-shadow: 0px 1px 6px #0000001A;
     border-radius: 10px;
-    padding: 20px 0;
+    padding: 20px;
     width: 100%;
 }
 
@@ -313,10 +312,6 @@ nav{
   }
 
   @media screen and (min-width: 1550px) {
-    .count-items{
-        width: 320px;
-        padding:20px;
-    }
     
   }
 
@@ -324,8 +319,14 @@ nav{
     .blue-background{
         height: 150px;
     }
+
+    .main{
+        grid-template-columns: 220px calc(100% - 220px);
+    }
+
     .main aside{
         font-size: 14px;
+        width: 188px;
     }
 
     .add-school{
@@ -367,10 +368,6 @@ nav{
         left: -280px;
         transition: all ease 1s;
     }
-
-    .aside-link span:nth-child(2){
-        display: inline-block;
-    }
     
   }
 
@@ -379,7 +376,16 @@ nav{
   }
 
   @media screen and (max-width: 576px) {
-   
+    #user-dropdown{
+        width: fit-content;
+    }   
+
+    #user-options{
+        position: absolute;
+        top: 25px;
+        left: -90px;
+        width: 150px;
+    }
   }
 
   @media screen and (max-width: 480px) {
