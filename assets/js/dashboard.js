@@ -1,3 +1,5 @@
+Chart.register(ChartDataLabels);
+
 //activate link by visit
 let link = document.getElementsByClassName("link-box");
 
@@ -93,6 +95,9 @@ new Chart("bar-chart", {
   },
   options: {
     plugins: {
+      datalabels:{
+        display: false
+      },
       legend: {
         display: true,
         position: 'right',
@@ -139,13 +144,8 @@ new Chart("bar-chart", {
 
 //pie chart
 var pieXValues = ["Multimedia", "Audio Notes", "Notes","Free Space"];
-var pieYValues = [49, 17, 23, 11];
-var barColors = [
-  "#386CB5",
-  "#286BCB",
-  "#7DB0F7",
-  "#CCCCCC"
-];
+var pieYValues = [ 85, 115, 55, 245];
+var barColors = ["#286BCB", "#7DB0F7", "#CCCCCC", "#386CB5"];
 
 //custom data labels plugin block
 
@@ -156,18 +156,32 @@ new Chart("pie-chart", {
     labels: pieXValues,
     datasets: [{
       backgroundColor: barColors,
-      data: pieYValues
+      data: pieYValues,
+      borderWidth: 6
     }]
   },
   options: {
+    rotation: 45,
     plugins: {
-      datalabels: {
-        formatter: (value) => {
-            return value;
+      datalabels:{
+        formatter: (value, ctx) => {
+          let sum = 0;
+          let dataArr = ctx.chart.data.datasets[0].data;
+          dataArr.map(data => {
+            sum += data;
+          });
+          let percentage = (value*100 / sum).toFixed(0)+"%";
+          return percentage;
         },
-        display: true,
-        color: '#fff',
-    },
+        labels: {
+          title: {
+            font: {
+              weight: 'bold'
+            }
+          },
+        },
+        color: "#FFFFFF"
+      },
       legend: {
         display: true,
         position: 'left',
@@ -176,8 +190,8 @@ new Chart("pie-chart", {
             usePointStyle	: true,
             pointStyle: "circle",
             fontColor: '#333',
-            boxWidth: 8,
-            boxHeight: 8,
+            boxWidth: 10,
+            boxHeight: 10,
             borderRadius: "50",
         }
     },
