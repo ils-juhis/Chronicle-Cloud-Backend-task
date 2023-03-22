@@ -24,7 +24,6 @@ body{
 
 .main{
     width: 100%;
-    padding: 0.5%;
     height: 100%;
     display: grid;
     grid-template-columns: 260px calc(100% - 260px);
@@ -39,7 +38,7 @@ body{
     left: 0;
     width: 260px;
     grid-area: navbar;
-    z-index: 1;
+    z-index: 20;
 
 }
 
@@ -97,6 +96,12 @@ body{
 
 nav{
     min-width: none;
+    position: sticky;
+    top: -1px;
+    left: 0;
+    z-index: 10;
+    background-color: #487FCC;
+
 }
 
 #toggle-btn{
@@ -252,6 +257,11 @@ nav{
     padding: 20px;
 }
 
+.table-responsive{
+    white-space: nowrap;
+    width: calc(100vw - 290px);
+}
+
 .school-table th{
     text-align: left;
     font: normal normal 600 13px/22px Open Sans;
@@ -275,28 +285,10 @@ nav{
 }
 
 /****************scroll bar ******************************/
-::-webkit-scrollbar-corner { background: rgba(0,0,0,0.5); }
+*::-webkit-scrollbar { 
+    display: none;
+ }
 
-    * {
-        scrollbar-width: thin;
-        scrollbar-color: var(--scroll-bar-color) var(--scroll-bar-bg-color);
-    }
-
-    /* Works on Chrome, Edge, and Safari */
-    *::-webkit-scrollbar {
-        width: 12px;
-        height: 12px;
-    }
-
-    *::-webkit-scrollbar-track {
-        background: var(--scroll-bar-bg-color);
-    }
-
-    *::-webkit-scrollbar-thumb {
-        background-color: var(--scroll-bar-color);
-        border-radius: 20px;
-        border: 3px solid var(--scroll-bar-bg-color);
-    }
 
 @media screen and (min-width: 1920px) {
    
@@ -367,6 +359,11 @@ nav{
         top:0;
         left: -280px;
         transition: all ease 1s;
+    }
+
+    .table-responsive{
+        width: calc(100vw - 75px);
+
     }
     
   }

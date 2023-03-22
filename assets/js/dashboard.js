@@ -95,8 +95,8 @@ new Chart("bar-chart", {
     plugins: {
       legend: {
         display: true,
-        position: 'top',
-        align: 'end',
+        position: 'right',
+        align: 'start',
         labels: {
             usePointStyle	: true,
             pointStyle: "circle",
@@ -163,32 +163,29 @@ new Chart("pie-chart", {
     plugins: {
       datalabels: {
         formatter: (value) => {
-            let sum = 0;
-            let dataArr = pieYValues;
-            dataArr.map(data => {
-                sum += data;
-            });
-            let percentage = (value*100 / sum).toFixed(2)+"%";
-            return percentage;
+            return value;
         },
+        display: true,
         color: '#fff',
     },
       legend: {
         display: true,
-        position: 'bottom',
-        align: 'start',
+        position: 'left',
+        align: 'end',
         labels: {
             usePointStyle	: true,
             pointStyle: "circle",
             fontColor: '#333',
             boxWidth: 8,
             boxHeight: 8,
-            borderRadius: "50"
+            borderRadius: "50",
         }
     },
       title: {
         display: false,
+        beginAtZero: true,
       },
+      type: 'linear'
     },
     responsive: true,
     aspectRatio: 2
