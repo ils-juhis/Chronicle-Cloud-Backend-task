@@ -178,6 +178,50 @@ let validateRegisterForm=(event, currentTab, lastStep)=>{
 }
 
 
+//remember me functionality
+let  setCookie = ()=>{
+    let  email= document.getElementById("input-email").value
+    let password = document.getElementById("input-password").value
+    let checked = document.getElementById("rememberCheck").checked
+
+    if(checked === true){
+        document.cookie = "email="+email+";path=http://127.0.0.1:5501/"
+        document.cookie = "password="+password+";path=http://127.0.0.1:5501/"
+        document.cookie = "checked="+checked+";path=http://127.0.0.1:5501/"
+    }else{
+        console.log("run")
+        document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=http://127.0.0.1:5501/;";
+        document.cookie = "password=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=http://127.0.0.1:5501/;";
+        document.cookie = "checked=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=http://127.0.0.1:5501/;";
+    }
+
+}
+
+let getCookie = (cname)=> {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+let getCookieData = () =>{
+    let email = getCookie("email");
+    let password = getCookie("password")
+    let checked = getCookie("checked");
+    document.getElementById("input-email").value = email;
+    document.getElementById("input-password").value = password;
+    document.getElementById("rememberCheck").checked = checked
+
+}
 
 var currentTab = 0; 
 let showTab = (n) => {
@@ -235,3 +279,4 @@ const phoneInput = window.intlTelInput(phoneInputField, {
     utilsScript:
       "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
    });
+

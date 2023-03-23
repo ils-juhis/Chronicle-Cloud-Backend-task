@@ -232,7 +232,7 @@ nav{
 }
 #user-name{
     color: white;
-    font-size: 12px !important;
+    font-size: 13px !important;
     margin: auto 7px;
     overflow-x: hidden;
     display: inline-block;
@@ -248,6 +248,11 @@ nav{
     width: 100%;
 }
 
+.graphs .heading{
+    height: 30px;
+    margin-bottom: 15px;
+}
+
 
 /************table CSS*****************/
 .school-table{
@@ -259,7 +264,7 @@ nav{
 
 .table-responsive{
     white-space: nowrap;
-    width: calc(100vw - 290px);
+    width: calc(100vw - 335px);
 }
 
 .school-table th{
@@ -277,6 +282,14 @@ nav{
 .school-table tr>th img{
     width: 50px;
     border: 1px solid #EEEEEE;
+}
+
+.school-table tbody tr{
+    vertical-align: middle;
+}
+
+.school-table tbody td{
+    padding: 20px 0 ;
 }
 
 .text-mute{
@@ -313,12 +326,12 @@ nav{
     }
 
     .main{
-        grid-template-columns: 220px calc(100% - 220px);
+        grid-template-columns: 240px calc(100% - 240px);
     }
 
     .main aside{
         font-size: 14px;
-        width: 188px;
+        width: 210px;
     }
 
     .add-school{
@@ -338,6 +351,11 @@ nav{
     .count-items>div div:nth-child(3){
         font: normal normal normal 12px/19px Open Sans;
         color: #5c5c5d;
+    }
+
+    .table-responsive{
+        white-space: nowrap;
+        width: calc(100vw - 310px);
     }
   }
 
@@ -359,6 +377,10 @@ nav{
         top:0;
         left: -280px;
         transition: all ease 1s;
+    }
+
+    .main aside{
+        width: 250px;
     }
 
     .table-responsive{

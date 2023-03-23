@@ -15,7 +15,7 @@
     <script src="https://kit.fontawesome.com/0c9e474dd2.js" crossorigin="anonymous"></script>
     <title>Chronicle cloud</title>
 </head>
-<body>
+<body onload="getCookieData()">
     <div class="main">
         <div class="row m-0 mt-5 mt-lg-0 h-100 align-items-lg-center">
 
@@ -57,7 +57,7 @@
                                     
                                     <div class="rem-forget d-flex justify-content-between my-2">
                                         <div class="form-check ">
-                                            <input class="form-check-input shadow-none rounded-circle" type="checkbox" value="" id="flexCheckIndeterminate" required>
+                                            <input class="form-check-input shadow-none rounded-circle" type="checkbox" value="" id="rememberCheck" onclick="setCookie()">
                                             <label class="form-check-label" for="flexCheckIndeterminate">
                                               Remember Me
                                             </label>
