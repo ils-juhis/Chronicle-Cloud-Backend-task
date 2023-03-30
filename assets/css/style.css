@@ -55,6 +55,7 @@
     align-items: stretch;
     height: fit-content;
     overflow: hidden;
+    transition: all ease 0.25s;
 }
 
 
@@ -131,7 +132,6 @@
     width: 100%;
     color: rgb(38, 38, 38);
     font-weight: 500;
-    
 }
 
 .input-wrapup .moving-label{
@@ -146,11 +146,10 @@
  }
 
  .input-wrapup input:focus + .moving-label, .input-wrapup input:not(focus):valid + .moving-label{
-    top: 4px;
-    margin: 0;
+    margin: 4px 0 4px 0;
     color: rgb(107, 107, 107);
     font-size: 12px;
-    transition: all ease 0.25s;
+    
 }
 
 .form-check-input:checked {
