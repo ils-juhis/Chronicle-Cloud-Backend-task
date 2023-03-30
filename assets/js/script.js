@@ -38,20 +38,25 @@ let validateEmail= (event)=>{
         email=event.currentTarget.value;
 
     let messageEmail = document.getElementById("invalid-email")
-
+    let emailBox = document.getElementById("input-email").parentElement.parentElement
     let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     let result = regex.test(email);
     if(!result){
         messageEmail.innerHTML= "*Please enter valid email address";
+        emailBox.setAttribute("error", "true");
         return false;
     }else{
         messageEmail.innerHTML= `<span>&nbsp;</span>`
+        emailBox.setAttribute("error", "false");
+
         return true;
     }
 }
 
 let validatePassword =(event)=>{
     let password;
+    let passwordBox = document.getElementById("input-password").parentElement.parentElement
+
     if(event.currentTarget===undefined)
         password=event.value;
     else
@@ -61,24 +66,31 @@ let validatePassword =(event)=>{
 
     if(password === ""){
         messagePass.innerHTML= "*Please enter valid password.";
+        passwordBox.setAttribute("error", "true");
         return false;
     }else if(! /[a-z]/.test(password)){
         messagePass.innerHTML= "*Password should contain altleast 1 lower character.";
+        passwordBox.setAttribute("error", "true");
         return false;
     }else if(! /[A-Z]/.test(password)){
         messagePass.innerHTML= "*Password should contain altleast 1 upper character.";
+        passwordBox.setAttribute("error", "true");
         return false;
     }else if(! /[0-9]/.test(password)){
         messagePass.innerHTML= "*Password should contain altleast 1 digit.";
+        passwordBox.setAttribute("error", "true");
         return false;
     }else if(! /[!@#$%^&*]/.test(password)){
         messagePass.innerHTML= "*Password should contain altleast 1 special character.";
+        passwordBox.setAttribute("error", "true");
         return false;
     }else if(password.length<8){
         messagePass.innerHTML= "*Password should be minimum of 8 charaters.";
+        passwordBox.setAttribute("error", "true");
         return false;
     }else{
         messagePass.innerHTML= `<span>&nbsp;</span>`
+        passwordBox.setAttribute("error", "false");
         return true;
     }
 }
@@ -124,7 +136,7 @@ let validateForm=(event, formName, lastStep)=>{
         document.forms[formName].submit();
         window.location.href='dashboard.html';
     }else if(formName === "forgot-email-form" && result){
-        document.forms[formName].submit();
+        sendEmail(document.forms[formName]["email"].value)
     }
     return result;
 }
@@ -222,6 +234,23 @@ let getCookieData = () =>{
     document.getElementById("rememberCheck").checked = checked
 
 }
+
+let sendEmail = (email)=> {
+    console.log(email)
+    Email.send({
+        Host: "smtp.gmail.com",
+        Username: "Juhi Sahu",
+        Password: "28/Sep/2001",
+        To: email,
+        From: "unknown.user100209@gmail.com",
+        Subject: "OTP for forgot password",
+        Body: "Your OTP is 12345",
+        })
+        .then(function (message) {
+            // alert("mail sent successfully")
+            console.log(message)
+        });
+  }
 
 var currentTab = 0; 
 let showTab = (n) => {
