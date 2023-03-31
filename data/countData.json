@@ -1,0 +1,36 @@
+{
+    "countData":[
+        {
+            "heading": "School count",
+            "activeCases": "04",
+            "status": "Active",
+            "icon":"f549",
+            "totalText":"Total Schools ",
+            "total": 12
+        },
+        {
+            "heading": "teacher count",
+            "activeCases": "84",
+            "status": "Active",
+            "icon": "f508",
+            "totalText":"Total Teacher",
+            "total": 98
+        },
+        {
+            "heading": "roster count",
+            "activeCases": "1256",
+            "status": "Active",
+            "icon": "f007",
+            "totalText":"Total Roster",
+            "total": 1307
+        },
+        {
+            "heading": "class count",
+            "activeCases": "76",
+            "status": "Active",
+            "icon": "f328",
+            "totalText":"Total Classes",
+            "total": 79
+        }
+    ]
+}

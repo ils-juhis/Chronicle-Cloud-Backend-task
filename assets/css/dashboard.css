@@ -203,6 +203,7 @@ nav{
 
 #user-options{
     position: absolute;
+    overflow: hidden;
     top: 25px;
     left: 0;
     background-color: white;
@@ -314,6 +315,12 @@ nav{
 
   @media screen and (max-width: 1700px) {
  
+  }
+
+  @media screen and (min-width: 1400px) {
+    .smallbox-container, .graph-container{
+        width: 90%;
+    }
   }
 
   @media screen and (min-width: 1550px) {

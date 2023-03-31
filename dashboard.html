@@ -93,85 +93,36 @@
             </nav>
 
             <div class="p-3">
-                <section>
-                    <div class="count-box row g-4 mb-4">
-                        <div class="col-12 col-sm-6 col-xxl-3">
-                            <div class="count-items d-flex">
-                                <div>
-                                    <div> School Count</div>
-                                    <div> 04 <span>Active</span></div>
-                                    <div>Total Schools: 12</div>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa-solid fa-school"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-xxl-3">
-                            <div class="count-items d-flex">
-                                <div>
-                                    <div> Teacher Count</div>
-                                    <div> 84 <span>Active</span></div>
-                                    <div>Total Teachers: 98</div>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa-solid fa-user-tie"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-xxl-3">
-                            <div class="count-items d-flex">
-                                <div>
-                                    <div> Roster Count</div>
-                                    <div> 1256 <span>Active</span></div>
-                                    <div>Total Roster: 1307</div>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa-solid fa-user"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-xxl-3">
-                            <div class="count-items d-flex">
-                                <div>
-                                    <div> class Count</div>
-                                    <div> 76 <span>Active</span></div>
-                                    <div>Total Classes: 79</div>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa-solid fa-clipboard-user"></i>
-                                </div>
-                            </div>
-                        </div>
+                <section class="smallbox-container">
+                    <div class="count-box row g-4 mb-4" id="count-box">
                     </div>
                 </section>
     
-                <section class="row g-4 mb-4 graph-container">
-                    <div class="col-12 col-xl-6">
-                        <div class="graphs">
-                            <div class="heading">Rosters | Teachers </div>
-                            <div class="position-relative">
-                                <div id="bar-chart-labels"></div>
-                                <canvas id="bar-chart" ></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-xl-6">
-                        <div class="graphs">
-                            <div class="heading d-flex justify-content-between"> 
-                                <div>Data Usage</div>
-                                <select class="form-select form-select-sm border-none shadow-none" aria-label=".form-select-sm example" style="width: fit-content; font-size: 12px;">
-                                    <option selected>School_Name_01</option>
-                                    <option value="1">School_Name_02</option>
-                                    <option value="2">School_Name_03</option>
-                                    <option value="3">School_Name_04</option>
-                                </select>
-                            </div>
-                            <div class="position-relative">
-                                <div>
-                                    <canvas id="pie-chart"></canvas>
+                <section class="graph-container">
+                    <div class="row g-4 mb-4">
+                        <div class="col-12 col-xl-6">
+                            <div class="graphs">
+                                <div class="heading">Rosters | Teachers </div>
+                                <div class="position-relative">
+                                    <div id="bar-chart-labels"></div>
+                                    <canvas id="bar-chart" ></canvas>
                                 </div>
+                            </div>
                         </div>
+                        <div class="col-12 col-xl-6">
+                            <div class="graphs">
+                                <div class="heading d-flex justify-content-between"> 
+                                    <div>Data Usage</div>
+                                    <select class="form-select form-select-sm border-none shadow-none" id="select-school" aria-label=".form-select-sm example" style="width: fit-content; font-size: 12px;">
+                                        
+                                    </select>
+                                </div>
+                                <div class="position-relative">
+                                    <div>
+                                        <canvas id="pie-chart"></canvas>
+                                    </div>
+                            </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -191,46 +142,8 @@
                                 <th scope="col">Action</th>
                               </tr>
                             </thead>
-                            <tbody>
-                              <tr>
-                                <th scope="row"> <img src="./assets/images/school_logo.png" alt=""></th>
-                                <td>School_Name, School name goes here…</td>
-                                <td>school_name@email.com <br> +91 731 987 321, +91 98765 43210</td>
-                                <td>176 / 12</td>
-                                <td>256/<span class="text-mute">500 mb</span></td>
-                                <td>Active</td>
-                                <td>
-                                    <a href="#" class="text-decoration-none">
-                                        <i class="fa-solid fa-eye"></i> &nbsp; View
-                                    </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <th scope="row"> <img src="./assets/images/school_logo.png" alt=""></th>
-                                <td>Queen’s College</td>
-                                <td>Queen'scollege@email.com <br> +91 731 987 321, +91 98765 43210</td>
-                                <td>225 / 18</td>
-                                <td>103/<span class="text-mute">500 mb</span></td>
-                                <td>Active</td>
-                                <td>
-                                    <a href="#" class="text-decoration-none">
-                                        <i class="fa-solid fa-eye"></i> &nbsp; View
-                                    </a>
-                                </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"> <img src="./assets/images/school_logo.png" alt=""></th>
-                                    <td>Golden International School</td>
-                                    <td>Goldeninternationalschool@email.com <br> +91 731 987 321, +91 98765 43210</td>
-                                    <td>364 / 30</td>
-                                    <td>324/<span class="text-mute">500 mb</span></td>
-                                    <td>Active</td>
-                                    <td>
-                                        <a href="#" class="text-decoration-none">
-                                            <i class="fa-solid fa-eye"></i> &nbsp; View
-                                        </a>
-                                    </td>
-                                  </tr>
+                            <tbody >
+                                
                             </tbody>
                       </table>
                     </div>
@@ -244,5 +157,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
     <script src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
     <script src="./assets/js/dashboard.js"></script>
+    <script type="module" src="./assets/js/fetchData.js"></script>
 </body>
 </html>

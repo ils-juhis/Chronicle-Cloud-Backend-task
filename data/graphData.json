@@ -1,0 +1,41 @@
+{
+    "allSchool": [
+        {
+            "schoolName":"School_Name_01",
+            "multimedia": 85,
+            "audioNotes":115,
+            "notes": 55,
+            "free": 245,
+            "active":160,
+            "inactive": 40
+        },
+        {
+            "schoolName":"School_Name_02",
+            "multimedia": 80,
+            "audioNotes":200,
+            "notes": 55,
+            "free": 205,
+            "active":200,
+            "inactive": 70
+        },
+        {
+            "schoolName":"School_Name_03",
+            "multimedia": 160,
+            "audioNotes":105,
+            "notes": 70,
+            "free": 245,
+            "active":350,
+            "inactive": 100
+        },
+        {
+            "schoolName":"School_Name_04",
+            "multimedia": 100,
+            "audioNotes":195,
+            "notes": 55,
+            "free": 45,
+            "active":250,
+            "inactive":50
+        }
+
+    ]
+}
