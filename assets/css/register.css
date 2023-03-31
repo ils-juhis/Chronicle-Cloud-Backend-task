@@ -14,7 +14,7 @@
 }
 
 .logo>img{
-    width: 400px;
+    width: 350px;
 }
 
 .form-container{
@@ -23,7 +23,7 @@
 
 
 .form-container>.content{
-    width: 400px;
+    width: 370px;
 }
 
 .form-container .card{
@@ -47,28 +47,34 @@
     position: relative;
     width: 100%;
     border: 1px solid #DDDDDD;
-    margin: 4px 0 0 0;
+    margin: 7px 0 0 0;
     border-radius: 6px;
     background: #F7FAFF 0% 0% no-repeat padding-box;
     display: flex;
-    align-items: center;
-    height: 48px;
+    align-items: stretch;
+    height: fit-content;
+    overflow: hidden;
+    transition: all ease 0.25s;
 }
 
 
 .card-description>.credentials input:not(input[type="tel"]):not(input[type="checkbox"]){
     background-color: transparent;
-    padding: 25px 10px 4px;
     border: none;
     outline: none;
     width: 100%;
     position:sticky;
     z-index: 999;
+    padding: 20px 0 4px;
 }
 
 .card-description>.credentials .input-grp:focus-within{
     border-bottom: 1px solid #386CB5;
 } 
+
+.card-description>.credentials .input-grp[error='true']:focus-within{
+    border-bottom: 1px solid#FF0000;
+}
 
 .card-description>.credentials .input-grp:focus-within::after {
     content: "\A";
@@ -78,7 +84,13 @@
     bottom: 0;
     width:100%;
     height: 0;
-    z-index: 999999;
+    z-index: 9999999;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.card-description>.credentials .input-grp[error='true']:focus-within::after {
+    border-bottom: 1px solid #FF0000;
 }
 
 .card-description>.credentials button[type="submit"]{
@@ -88,12 +100,14 @@
     box-shadow: 0px 0px 5px #386CB566;
     border-radius: 6px;
     color: white;
-    padding: 10px;
+    padding: 10px 20px;
 }
 
 .password-eye{
     cursor: pointer;
     color: gray;
+    margin: auto 13px;
+
 }
 
 #register{
@@ -107,10 +121,7 @@
     cursor: pointer;
 }
 
-#invalid-phone,#invalid-password, 
-#invalid-cpassword, #invalid-name, 
-#invalid-email, #invalid-password,
-#invalid-fields{
+.invalid-error{
     color: red;
     font-size: 10px;
     font-weight: 700;
@@ -120,31 +131,36 @@
 .input-wrapup{
     position: relative;
     width: 100%;
-    height: 48px;
     color: rgb(38, 38, 38);
     font-weight: 500;
+    padding: 0 11px;
 }
 
 .input-wrapup .moving-label{
     position: absolute;
     top: 0;
-    left: 0;
-    padding: 13px 10px;
+    bottom: 0;
+    margin: auto 0;
+    display: block;
+    width: fit-content;
+    height: fit-content;
     z-index: 998;
  }
 
  .input-wrapup input:focus + .moving-label, .input-wrapup input:not(focus):valid + .moving-label{
-    top: -10px;
+    margin: 4px 0 4px 0;
     color: rgb(107, 107, 107);
     font-size: 12px;
-    transition: all ease 0.25s;
 }
 
 .info{
     font-size: 14px;
 }
 
-
+.form-check-input:checked {
+    border-color: #00000033 !important; 
+    background-color: #08D152 !important;
+}
 /********************registration css ****************************/
 
 .reg-steps{
@@ -218,8 +234,12 @@
 }
 
 /*****************phone input CSS *****************/
+.tel.input-grp{
+   overflow: unset !important; 
+}
+
 .tel-input-wrapup{
-    height: 100%;
+    height: 43px;
 }
 .iti{
     width: 100%;
@@ -240,7 +260,7 @@
 
 }
 
-#phone{
+#input-phone{
     outline: none;
     border: none;
     width: 100%;
@@ -325,9 +345,7 @@
   }
 
   @media screen and (max-width: 576px) {
-    .form-container>.content{
-        width: 100%;
-    }
+
   }
 
   @media screen and (max-width: 480px) {
@@ -346,4 +364,13 @@
         font: normal normal normal 14px Open Sans !important;
     }
     
+  }
+
+  @media screen and (max-width: 408px) {
+    .form-container>.content{
+        width: 100%;
+    }
+    .form-container .card{
+        padding:30px 25px ;
+    }
   }

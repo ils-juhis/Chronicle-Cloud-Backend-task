@@ -11,7 +11,6 @@ let toggleEye = (e)=>{
     
 }
 
-
 let validateName= (event)=>{
     let name;
     if(event.currentTarget===undefined)
@@ -95,6 +94,25 @@ let validatePassword =(event)=>{
     }
 }
 
+//remember me functionality
+let  setCookie = ()=>{
+    let  email= document.getElementById("input-email").value
+    let password = document.getElementById("input-password").value
+    let checked = document.getElementById("rememberCheck").checked
+
+    if(checked === true){
+        document.cookie = "email="+email+";path=http://127.0.0.1:5501/"
+        document.cookie = "password="+password+";path=http://127.0.0.1:5501/"
+        document.cookie = "checked="+checked+";path=http://127.0.0.1:5501/"
+    }else{
+        console.log("run")
+        document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=http://127.0.0.1:5501/;";
+        document.cookie = "password=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=http://127.0.0.1:5501/;";
+        document.cookie = "checked=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=http://127.0.0.1:5501/;";
+    }
+
+}
+
 let comparePassword = (event)=>{
     let cpassword;
     if(event.currentTarget===undefined)
@@ -109,6 +127,48 @@ let comparePassword = (event)=>{
         return false;
     }else{
         messagePass.innerHTML= `<span>&nbsp;</span>`
+        return true;
+    }
+}
+
+let validatePhoneNumber = (event)=>{
+    let number;
+    if(event.currentTarget===undefined)
+        number=event.value;
+    else
+        number=event.currentTarget.value;
+    let messagePass = document.getElementById("invalid-phone")
+    if(number.length !== 10){
+        messagePass.innerHTML= "*Number must be of 10 digits.";
+        return false;
+    }else{
+        messagePass.innerHTML= `<span>&nbsp;</span>`
+        return true;
+    }
+}
+
+let validateForEmptyBox=(event, fieldName, fieldErrorId)=>{
+    let fieldValue, element;
+
+    if(event.currentTarget===undefined){
+        fieldValue=event.value;
+        element=event;
+    }
+    else{
+        fieldValue=event.currentTarget.value;
+        element.currentTarget
+    }
+
+    let outerBox = element.parentElement.parentElement
+
+    let messagePass = document.getElementById(fieldErrorId)
+    if(fieldValue === ""){
+        messagePass.innerHTML= `*Please enter ${fieldName}`;
+        outerBox.setAttribute("error", "true");
+        return false;
+    }else{
+        messagePass.innerHTML= `<span>&nbsp;</span>`;
+        outerBox.setAttribute("error", "false");
         return true;
     }
 }
@@ -140,74 +200,73 @@ let validateForm=(event, formName, lastStep)=>{
     }
     return result;
 }
+
+let checkTermsConditions=(event, errorId)=>{
+    let checked;
+    if(event.currentTarget===undefined)
+        checked=event.checked;
+    else
+        checked=event.currentTarget.checked;
+
+        console.log(checked)
+    if(!checked){
+        document.getElementById(errorId).innerHTML= `*Please accept all Terms and Conditions.`;
+        return false;
+    }else{
+        document.getElementById(errorId).innerHTML= `<span>&nbsp;</span>`
+        return true;
+    }
+}
+
 //validate login and forgot password form
 let validateRegisterForm=(event, currentTab, lastStep)=>{
     event.preventDefault();
-    let formFields = [["email", "password", "confirmPassword", "fname", "lname", "phoneNo"], 
-    ["schoolName", "state", "country", "zipCode"]]
+    let formFields = [[{fieldName: "email", fieldId: "input-email", errorId:"invalid-email"},
+    {fieldName: "password", fieldId: "input-password", errorId:"invalid-password"},
+    {fieldName: "first name", fieldId: "input-fname", errorId:"invalid-fname"},
+    {fieldName: "last name", fieldId: "input-lname", errorId:"invalid-lname"},
+    {fieldName: "mobile number", fieldId: "input-phone", errorId:"invalid-phone"},
+    {fieldName: "confirm Password", fieldId: "confirm-password", errorId:"invalid-cpassword"}], 
 
-    fields=formFields[currentTab];
-    let fieldname, result=true, r;
-    for (let i = 0; i < fields.length; i++) {
-        fieldname = fields[i];
-        switch(fieldname){
-            case "email": result = result && validateEmail(document.forms["register-form"]["email"]);
+    [{fieldName: "school name", fieldId: "input-schoolName", errorId:"invalid-school"},
+    {fieldName: "state", fieldId: "input-state", errorId:"invalid-state"},
+    {fieldName: "country", fieldId: "input-country", errorId:"invalid-country"},
+    {fieldName: "zip code", fieldId: "input-zipCode", errorId:"invalid-zipCode"},
+    {fieldName: "terms and conditions", fieldId:"condition-check", errorId: "uncheck-terms"}]]
+
+    tabData=formFields[currentTab];
+    let result=true, r;
+    let form = document.forms["register-form"];
+    for (let i = 0; i < tabData.length; i++) {
+        fieldData = tabData[i]
+        switch(fieldData.fieldName){
+            case "email": result = result && validateEmail(form["email"]); console.log( validateEmail(form["email"]))
             break;
-            case "password": r = validatePassword(document.forms["register-form"]["password"]); result = result && r;
+            case "password": r = validatePassword(form["password"]); result = result && r;
             break;
-            case "confirmPassword": r = comparePassword(document.forms["register-form"]["confirmPassword"]); result = result && r;
+            case "confirm password": r = comparePassword(form["confirmPassword"]); result = result && r;
             break;
-            case "fname" ||"lname": r = validateName(document.forms["register-form"]["fname"]); result = result && r;
-                r = validateName(document.forms["register-form"]["lname"]); result = result && r;
+            case "first name": r = validateForEmptyBox(form["fname"], "first name", "invalid-fname"); result = result && r;
             break;
-            case "phoneNo": if(document.forms["register-form"]["phoneNo"].value === "")
-                            {
-                                document.getElementById("invalid-phone").innerHTML = "*Please enter valid mobile number."
-                                r=false;
-                            }else{
-                                document.getElementById("invalid-phone").innerHTML = `<span>&nbsp;</span>`
-                                r=true;
-                            }
-                            result = result && r;
-                            break;
-            default: if(document.forms["register-form"][fieldname].value === "")
-                    {
-                        document.getElementById("invalid-fields").innerHTML = "*Please fill all fields."
-                        r=false;
-                    }else{
-                        document.getElementById("invalid-fields").innerHTML = `<span>&nbsp;</span>`
-                        r=true;
-                    }
-                    result = result && r;
+            case "last name": r = validateForEmptyBox(form["lname"], "last name", "invalid-lname"); result = result && r;
+            break;
+            case "mobile number": r = validatePhoneNumber(form["phoneNo"]); result = result && r;
+            break;
+            case "terms and conditions":  r = checkTermsConditions(document.getElementById(fieldData.fieldId), fieldData.errorId); result = result && r;
+            break;
+            default: r = validateForEmptyBox(document.getElementById(fieldData.fieldId), fieldData.fieldName, fieldData.errorId); result = result && r;
         }
     }
 
     if((lastStep) && result && document.getElementById("condition-check").checked){
-        document.forms["register-form"].submit();
+        form.submit();
         window.location.href='dashboard.html';
     }
     return result;
 }
 
 
-//remember me functionality
-let  setCookie = ()=>{
-    let  email= document.getElementById("input-email").value
-    let password = document.getElementById("input-password").value
-    let checked = document.getElementById("rememberCheck").checked
 
-    if(checked === true){
-        document.cookie = "email="+email+";path=http://127.0.0.1:5501/"
-        document.cookie = "password="+password+";path=http://127.0.0.1:5501/"
-        document.cookie = "checked="+checked+";path=http://127.0.0.1:5501/"
-    }else{
-        console.log("run")
-        document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=http://127.0.0.1:5501/;";
-        document.cookie = "password=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=http://127.0.0.1:5501/;";
-        document.cookie = "checked=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=http://127.0.0.1:5501/;";
-    }
-
-}
 
 let getCookie = (cname)=> {
     let name = cname + "=";
@@ -300,7 +359,7 @@ function getIp(callback) {
       .then((resp) => callback(resp.country));
    }
 
-const phoneInputField = document.querySelector("#phone");
+const phoneInputField = document.querySelector("#input-phone");
 const phoneInput = window.intlTelInput(phoneInputField, {
     initialCountry: "auto",
     geoIpLookup: getIp,

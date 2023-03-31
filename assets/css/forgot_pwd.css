@@ -216,9 +216,6 @@
   }
 
   @media screen and (max-width: 576px) {
-    .form-container>.content{
-        width: 100%;
-    }
   }
 
   @media screen and (max-width: 480px) {

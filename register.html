@@ -50,67 +50,74 @@
                                 
                                 <div class="credentials tab">
                                     <div>
-                                        <div class="d-flex">
-                                            <div class="input-grp me-3">
-                                                <div class="input-wrapup">
-                                                    <input type="text" name="fname" autocomplete="off" required>
-                                                    <span class="moving-label">First Name</span>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="me-3">
+                                                <div error="false" class="input-grp">
+                                                    <div class="input-wrapup">
+                                                        <input type="text" name="fname" id="input-fname" autocomplete="off" required onkeyup="validateForEmptyBox(event, 'first name', 'invalid-fname')">
+                                                        <span class="moving-label">First Name</span>
+                                                    </div>
                                                 </div>
+                                                <div class="invalid-error" id="invalid-fname">&nbsp;</div>
                                             </div>
-                                            <div class="input-grp">
-                                                <div class="input-wrapup">
-                                                    <input type="text" name="lname" autocomplete="off" required>
-                                                    <span class="moving-label">Last Name</span>
+                                            <div>
+                                                <div error="false" class="input-grp">
+                                                    <div class="input-wrapup">
+                                                        <input type="text" name="lname" id="input-lname" autocomplete="off" required onkeyup="validateForEmptyBox(event, 'last name', 'invalid-lname')">
+                                                        <span class="moving-label">Last Name</span>
+                                                    </div>
                                                 </div>
+                                                <div class="invalid-error" id="invalid-lname">&nbsp;</div>
                                             </div>
                                         </div>
-                                        <div id="invalid-name">&nbsp;</div>
+                                        
                                     </div>
 
                                     <div>
-                                        <div class="input-grp">
+                                        <div error="false" class="input-grp">
+                                            <label for="email" class="p-2 pe-0 my-auto"> <img src="./assets/images/email.svg" alt="" ></label>
                                             <div class="input-wrapup">
-                                                <input type="text" name="email" id="input-email" autocomplete="off" required onkeypress="validateEmail(event)">
+                                                <input type="text" name="email" id="input-email" autocomplete="off" required onkeyup="validateEmail(event)">
                                                 <span class="moving-label">Email</span>
                                             </div>
                                         </div>
-                                        <div id="invalid-email">&nbsp;</div>
+                                        <div class="invalid-error" id="invalid-email">&nbsp;</div>
                                     </div>
 
                                     
                                     <div>
-                                        <div class="input-grp">
+                                        <div error="false" class="input-grp tel">
                                             <div class="tel-input-wrapup">
-                                                <input id="phone" type="tel" placeholder="Mobile Number" name="phoneNo" maxlength="10" id="input-phone" autocomplete="off" required onkeypress="return onlyNumberKey(event)"/>
+                                                <input type="tel" placeholder="Mobile Number" name="phoneNo" maxlength="10" id="input-phone" autocomplete="off" required onkeyup="validatePhoneNumber(event)" onkeypress="return onlyNumberKey(event)"/>
                                             </div>
                                         </div>
-                                        <div id="invalid-phone">&nbsp;</div>
+                                        <div class="invalid-error" id="invalid-phone">&nbsp;</div>
                                     </div>
                                     <br>
 
-                                    <div class="fw-bold ">Create Account</div>
+                                    <div class="fw-bold">Create Account</div>
                                     <div class="content text-muted mb-3"> Password must contain one special character, one capital letter and be at least 6 characters long. </div>
 
                                     <div>
-                                        <div class="input-grp">
+                                        <div error="false" class="input-grp">
                                             <div class="input-wrapup">
                                                 <input type="password" name="password" id="input-password"  autocomplete="off" onkeyup="validatePassword(event)" required>
                                                 <span class="moving-label">Password</span>
                                             </div>
                                             <span class="float-end p-2 password-eye" onclick="toggleEye(event)"><i class="fa-solid fa-eye"></i></span>
                                         </div>
-                                        <div id="invalid-password">&nbsp;</div>
+                                        <div class="invalid-error" id="invalid-password">&nbsp;</div>
                                     </div>
 
                                     <div>
-                                        <div class="input-grp">
+                                        <div error="false" class="input-grp">
                                             <div class="input-wrapup">
                                                 <input type="password" name="confirmPassword" id="confirm-password"  autocomplete="off" onkeyup="comparePassword(event)" required>
                                                 <span class="moving-label">Confirm Password</span>
                                             </div>
                                             <span class="float-end p-2 mm password-eye" onclick="toggleEye(event)"><i class="fa-solid fa-eye"></i></span>
                                         </div>
-                                        <div id="invalid-cpassword">&nbsp;</div>
+                                        <div class="invalid-error" id="invalid-cpassword">&nbsp;</div>
                                     </div>
                                     
                                     <div class="text-end my-4">
@@ -128,59 +135,60 @@
                                 <div class="credentials tab">
 
                                     <div>
-                                        <div class="input-grp">
+                                        <div error="false" class="input-grp">
                                             <div class="input-wrapup">
-                                                <input type="text" name="schoolName" id="input-schoolName" autocomplete="off" required>
+                                                <input type="text" name="schoolName" id="input-schoolName" autocomplete="off" onkeyup="validateForEmptyBox(event, 'school name', 'invalid-school')" required>
                                                 <span class="moving-label">School / University / Institute Name*</span>
                                             </div>
                                         </div>
-                                        <br>
+                                        <div class="invalid-error" id="invalid-school">&nbsp;</div>
                                     </div>
 
                                     <div>
-                                        <div class="input-grp">
+                                        <div error="false" class="input-grp">
                                             <div class="input-wrapup">
-                                                <input type="text" name="state" id="input-state" autocomplete="off" required>
+                                                <input type="text" name="state" id="input-state" autocomplete="off" onkeyup="validateForEmptyBox(event, 'state', 'invalid-state')" required>
                                                 <span class="moving-label">State*</span>
                                             </div>
                                         </div>
-                                        <br>
+                                        <div class="invalid-error" id="invalid-state">&nbsp;</div>
                                     </div>
 
                                     <div>
-                                        <div class="input-grp">
+                                        <div error="false" class="input-grp">
                                             <div class="input-wrapup">
-                                                <input type="text" name="country" id="input-country" autocomplete="off" required>
+                                                <input type="text" name="country" id="input-country" autocomplete="off" onkeyup="validateForEmptyBox(event, 'country', 'invalid-country')" required>
                                                 <span class="moving-label">Country*</span>
                                             </div>
                                         </div>
-                                        <br>
+                                        <div class="invalid-error" id="invalid-country">&nbsp;</div>
                                     </div>
 
                                     <div>
-                                        <div class="input-grp">
+                                        <div error="false" class="input-grp">
                                             <div class="input-wrapup">
-                                                <input type="text" name="zipCode" id="input-zipCode" autocomplete="off" required>
+                                                <input type="text" name="zipCode" id="input-zipCode" autocomplete="off" onkeyup="validateForEmptyBox(event, 'zip code', 'invalid-zipCode')" required>
                                                 <span class="moving-label">Zip Code*</span>
                                             </div>
                                         </div>
-                                        <div id="invalid-fields">&nbsp;</div>
+                                        <div class="invalid-error" id="invalid-zipCode">&nbsp;</div>
                                     </div>
 
-                                    <div class="rem-forget d-flex justify-content-between my-2 ">
+                                    <div class="rem-forget my-2 ">
                                         <div class="form-check ">
-                                            <input class="form-check-input shadow-none rounded-circle" style="border-color: #00000033 !important;" type="checkbox" value="" id="condition-check" required>
+                                            <input class="form-check-input shadow-none rounded-circle" style="border-color: #00000033 !important;" type="checkbox" id="condition-check" onclick="checkTermsConditions(event, 'uncheck-terms')" required>
                                             <label class="form-check-label" for="flexCheckIndeterminate">
                                                 I agree to the 
                                                 <a href="#" class="fw-bold text-decoration-none text-primary">Terms of service</a> 
                                                 and 
                                                 <a href="#" class="fw-bold text-decoration-none text-primary">Privacy Policy</a>.
                                             </label>
-                                          </div>
+                                        </div>
+                                        <div class="invalid-error" id="uncheck-terms">&nbsp;</div>
                                     </div>
                                     <div class="d-flex justify-content-between my-4">
                                         <button type="button" id="back-btn" onclick="nextPrev(event, -1)"> <img src="./assets/images/arrow-right.svg" alt=""> &nbsp; Step Back </button>
-                                        <button type="submit" id="" onclick="validateRegisterForm(event, 1, true)">Create Account</button>
+                                        <button type="submit" onclick="validateRegisterForm(event, 1, true)">Create Account</button>
                                     </div>
 
                                 </div>
