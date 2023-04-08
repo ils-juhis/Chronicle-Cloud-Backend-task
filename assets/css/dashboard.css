@@ -57,7 +57,8 @@ body{
 .aside-link{
     display: block;
     width: 100%;
-    color: #5c5c5d;
+    color: #7E84A3;
+    opacity: 0.7;
     text-decoration: none;
     font-weight: 800 !important;
 }
@@ -69,16 +70,24 @@ body{
 
 }
 
+.aside-icon img{
+    width: 16px;
+}
+
 .aside-link:hover{
     background-color: #F2F7FF;
-    color: #1f1f28;
+    color: #171725;
 }
 
-.active{
+.link-box.active{
     background-color: #F2F7FF;
 }
 
-.active .aside-link span:nth-child(2){
+.link-box.active .aside-link span:nth-child(1){
+    color: black;
+}
+
+.link-box.active .aside-link span:nth-child(2){
     color: #386CB5;
 }
 
@@ -138,7 +147,7 @@ nav{
 .count-items>div div:nth-child(1){
     font: normal normal 600 16px/22px Open Sans;
     font-weight: 600;
-    color: #5c5c5d;
+    opacity: 0.4;
     text-transform: uppercase;
 }
 .count-items>div div:nth-child(2){
@@ -149,8 +158,9 @@ nav{
 }
 .count-items>div div:nth-child(3){
     font: normal normal normal 14px/19px Open Sans;
-    color: #5c5c5d;
+    opacity: 0.4;
 }
+
 
 .count-box div:nth-child(1) .icon{
     background: transparent linear-gradient(158deg, #6D6AE3 0%, #6664D8 100%) 0% 0% no-repeat padding-box;
@@ -180,25 +190,26 @@ nav{
     border-radius: 50%;
 }
 
-.bell-icon{
+.bell-icon>img{
     cursor: pointer;
+    width: 18px;
 }
 
 .bell-icon span{
     position: absolute;
-    right: -5px;
-    top: -5px;
+    right: -4px;
+    top: 0px;
     text-align: center;
     background-color: #F0142F;
     font-size: 10px;
     color: white;
     width: 13px;
+    font-size: 8px;
 }
 
 #user-dropdown{
     cursor: pointer;
     position: relative;
-    width: 180px;
 }
 
 #user-options{
@@ -211,7 +222,7 @@ nav{
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 4px;
     display: none;
-    width: 180px;
+    width: 100%;
 }
 
 #user-options a{
@@ -250,17 +261,93 @@ nav{
 }
 
 .graphs .heading{
-    height: 30px;
     margin-bottom: 15px;
+    color: #444B48;
 }
 
+.graphs .heading span{
+    display: inline-block;
+    width: fit-content;
+    position: relative;
+}
+
+#bar-legend-box button{
+    display: block;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 12px;
+    color: #6C6C6C;
+}
+
+#bar-legend-box span:nth-child(1){
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #171725;
+    margin-right: 4px;
+}
+#bar-legend-box span:nth-child(2){
+    text-decoration-thickness: 2px !important;
+    text-decoration-color: #6C6C6C;
+}
+
+
+
+.graphs .heading a{
+    text-decoration: none;
+    color: #6C6C6C;
+    opacity: 0.4;
+    cursor: pointer;
+    background-color: transparent;
+
+}
+
+.graphs .heading a.active{
+    color: black !important;
+    opacity: 1 !important;
+    font-weight: 900;
+    background-color: transparent;
+}
+
+.graphs .heading a.active::after{
+    content: "\00a0";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-bottom: 2px solid #487FCC;
+    width: 100%;
+}
+
+.form-control, .form-control:focus {
+    border: 1px solid #CCCCCC !important;
+}
+
+.form-select-sm{
+    font: normal normal normal 12px Open Sans !important;
+}
+.form-select {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAABqUlEQVR4nO2XvUoDQRRGxx8QxUexlnQLuZPMzdwt3dLWQh8iXRoLFStRK1ttRBBURCxs9CF8EDUSSBQSY7Kzv7P7HZhqYe6cM1vsKgUAAAAAAAAAAAAAJmkKb5E11yT8RsJX1GmHqkQEQbBMwjta+I7EvJKYC83cSGPvBRI+1cL98UWWjwfPVcEEUbBO1jxMns98kuXdRJtra7b/kv9d5qTICAN5bfl52vnImo+WtDacB5A1T/8HKC7CLPmfCGL2nYdoMe+zA+QfYV754bp0HqQtv8w5JLcIMeUH68h5WKtj9mIMyjyCg/xXU9qbzgOjKFrSwrdliOAg39eWe4kHN6JoVQvfx4xw1u12F1MxV0qFYbimhR/jnIGsOUjtIhoFRihcvsgIpZFPFMGac5cIpZPPM0Jp5Ucw84oWvskiQunls4zgjXwWEbyTTzOCt/JpRPBePul3QtzPW7J8WDr5RG+C7zefVwQv5LOK4JV82hG8lE8rgtfySSNUQt41QqXk40aopPy8ESotPytCLeSnRaiV/HiEWsqPGP4S11MeAAAAAAAAAABQhfEN9WJgCWLWmB0AAAAASUVORK5CYII=") !important;
+    color: #444B48 !important;
+    background-size: 9px auto !important;
+    box-shadow: none !important;
+    cursor: pointer;
+}
+
+.form-select:focus{
+    border-color: #CCCCCC !important;
+}
 
 /************table CSS*****************/
 .school-table{
     background-color: white;
     box-shadow: 0px 1px 6px #0000001A;
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 10px;
     padding: 20px;
+}
+
+.school-table .heading{
+    color: #444B48;
 }
 
 .table-responsive{
@@ -277,6 +364,7 @@ nav{
 
 .school-table td{
     font: normal normal 600 13px/22px Open Sans;
+    font-weight: normal;
 }
 
 
@@ -289,9 +377,6 @@ nav{
     vertical-align: middle;
 }
 
-.school-table tbody td{
-    padding: 20px 0 ;
-}
 
 .text-mute{
     color: #7E84A3 !important;
@@ -357,7 +442,6 @@ nav{
     }
     .count-items>div div:nth-child(3){
         font: normal normal normal 12px/19px Open Sans;
-        color: #5c5c5d;
     }
 
     .table-responsive{

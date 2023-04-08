@@ -4,7 +4,7 @@
             "heading": "School count",
             "activeCases": "04",
             "status": "Active",
-            "icon":"f549",
+            "path":"./assets/images/school.svg",
             "totalText":"Total Schools ",
             "total": 12
         },
@@ -12,7 +12,7 @@
             "heading": "teacher count",
             "activeCases": "84",
             "status": "Active",
-            "icon": "f508",
+            "path": "./assets/images/teacher.svg",
             "totalText":"Total Teacher",
             "total": 98
         },
@@ -20,7 +20,7 @@
             "heading": "roster count",
             "activeCases": "1256",
             "status": "Active",
-            "icon": "f007",
+            "path": "./assets/images/group.svg",
             "totalText":"Total Roster",
             "total": 1307
         },
@@ -28,7 +28,7 @@
             "heading": "class count",
             "activeCases": "76",
             "status": "Active",
-            "icon": "f328",
+            "path": "./assets/images/class.svg",
             "totalText":"Total Classes",
             "total": 79
         }

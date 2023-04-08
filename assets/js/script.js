@@ -174,8 +174,9 @@ let validateForEmptyBox=(event, fieldName, fieldErrorId)=>{
 }
 
 //validate login and forgot password form
-let validateForm=(event, formName, lastStep)=>{
+let validateForm=(event, formName)=>{
     event.preventDefault();
+    console.log(document.forms[formName].elements)
     let formFields = {
         "login-form": ["email", "password"],
         "forgot-email-form": ["email"],

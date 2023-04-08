@@ -1,11 +1,37 @@
 //activate link by visit
-let link = document.getElementsByClassName("link-box");
+//link container
+let linkContainer = document.getElementById("link-container");
+//link-boxes
+let linkBox = document.getElementsByClassName("link-box");
+let iconArray = ["dash", "school", "teacher", "group", "class"]
+//link icon place
+let icons = document.querySelectorAll(".link-box .aside-icon")
+//active link
+var currentIcon = document.querySelector(".link-box.active .aside-icon");
+let activeNumber=0;
+for(let i=0; i<iconArray.length; i++){
+  if(linkBox[i].classList.contains("active")){
+    icons[i].innerHTML = `<img src="./assets/images/${iconArray[i]}Black.svg">`
+  }else{
+    icons[i].innerHTML = `<img src="./assets/images/${iconArray[i]}Grey.svg">`
+  }
+}
 
-for (let i = 0; i < link.length; i++) {
-  link[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
+for (let i = 0; i < linkBox.length; i++) {
+  linkBox[i].addEventListener("click", function() {
+    var current = document.querySelector(".link-box.active");
+    let currentIcon = current.getElementsByClassName("aside-icon")[0].firstElementChild;
+    let newSrc = currentIcon.src.replace("Black", "Grey").replace("http://127.0.0.1:5501", ".")
+    console.log(newSrc)
+    currentIcon.setAttribute("src", newSrc);
+
+    current.className = current.className.replace(" active", "");
     this.className += " active";
+    //replacing src
+    let newIcon = this.getElementsByClassName("aside-icon")[0].firstElementChild;
+    newSrc = newIcon.src.replace("Grey", "Black").replace("http://127.0.0.1:5501", ".")
+    console.log(newSrc)
+    newIcon.setAttribute("src", newSrc);
   });
 }
 
@@ -44,7 +70,6 @@ document.addEventListener('click', function(e) {
   }
 });
 
-
 //open and close drop down list
 let userDropdown = document.getElementById("user-dropdown")
 userDropdown.addEventListener("click", ()=>{
@@ -69,7 +94,6 @@ document.addEventListener('click', function(e) {
   }
   }
 });
-
 
 /*
 //custom pieLabelsLine plugin
@@ -185,3 +209,4 @@ new Chart("pie-chart", {
   },
 });
 */
+

@@ -6,8 +6,14 @@
             "audioNotes":115,
             "notes": 55,
             "free": 245,
-            "active":160,
-            "inactive": 40
+            "roster":{
+                "active":160,
+                "inactive": 40
+            },
+            "teachers": {
+                "active":150,
+                "inactive":20
+            }
         },
         {
             "schoolName":"School_Name_02",
@@ -15,8 +21,14 @@
             "audioNotes":200,
             "notes": 55,
             "free": 205,
-            "active":200,
-            "inactive": 70
+            "roster":{
+                "active":200,
+                "inactive": 70
+            },
+            "teachers": {
+                "active":150,
+                "inactive":90
+            }
         },
         {
             "schoolName":"School_Name_03",
@@ -24,8 +36,14 @@
             "audioNotes":105,
             "notes": 70,
             "free": 245,
-            "active":350,
-            "inactive": 100
+            "roster":{
+                "active":350,
+                "inactive": 100
+            },
+            "teachers": {
+                "active":300,
+                "inactive":100
+            }
         },
         {
             "schoolName":"School_Name_04",
@@ -33,8 +51,14 @@
             "audioNotes":195,
             "notes": 55,
             "free": 45,
-            "active":250,
-            "inactive":50
+            "roster":{
+                "active":250,
+                "inactive":50
+            },
+            "teachers": {
+                "active":400,
+                "inactive":20
+            }
         }
 
     ]
