@@ -88,9 +88,6 @@ pieChart = new Chart("pie-chart", {
         },
         labels: {
           title: {
-            font: {
-              weight: 'bold'
-            }
           },
         },
         color: "#FFFFFF"
@@ -163,9 +160,6 @@ document.getElementById("select-school").addEventListener('change', (e)=>{
               },
               labels: {
                 title: {
-                  font: {
-                    weight: 'bold'
-                  }
                 },
               },
               color: "#FFFFFF"
