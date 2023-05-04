@@ -1,9 +1,10 @@
 const db = require("../configs/DBconnection")
 const { v4: uuidv4 } = require('uuid');
-const { mail } = require("../utils/sendMail");
+const { sendBillEmail } = require("../utils/sendEmail/sendBillEmail");
 const generator = require('generate-password');
 const bcrypt = require('bcrypt');
-const { customerLoginEmail } = require("../utils/customerLoginEmail");
+const { customerLoginEmail } = require("../utils/sendEmail/customerLoginEmail");
+const {validationResult} = require('express-validator')
 
 
 const getCustomers = async (req, res)=>{
@@ -28,6 +29,15 @@ const getCustomers = async (req, res)=>{
 
 const addCustomer = async(req, res) =>{
     try {
+        const errors = validationResult(req);
+        if(!errors.isEmpty()){
+            console.log(errors.array())
+            return res.status(400).json({
+                status: "INVALID DATA",
+                errors: errors.array()
+            })
+        }
+
         const {name, email, mobileNo, address} = req.body;
         var password = generator.generate({
             length: 10,
@@ -119,6 +129,15 @@ const getAllBills = async (req, res)=>{
 
 const addBill = async(req, res) =>{
     try{
+        const errors = validationResult(req);
+        if(!errors.isEmpty()){
+            console.log(errors.array())
+            return res.status(400).json({
+                status: "INVALID DATA",
+                errors: errors.array()
+            })
+        }
+        
         const {customerID} = req.params;
         let billID = uuidv4();
 
@@ -160,9 +179,9 @@ const addBill = async(req, res) =>{
                             message: err
                         })
                     }else{
-                        mail(customerID, billID, billType, unit, month, year, amount, result[0].email, result[0].meterNo, dueDate, "billGeneration");
+                        sendBillEmail(customerID, billID, billType, unit, month, year, amount, result[0].email, result[0].meterNo, dueDate, "billGeneration");
                         setTimeout(()=>{
-                            mail(customerID, billID, billType, unit, month, year, amount, result[0].email, result[0].meterNo, dueDate, "Warning");
+                            sendBillEmail(customerID, billID, billType, unit, month, year, amount, result[0].email, result[0].meterNo, dueDate, "Warning");
                         }, (40000))
                         return res.status(201).json({status:'SUCCESS', data: {
                             "customerID": customerID, 

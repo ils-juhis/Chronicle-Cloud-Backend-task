@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 
-const mail = async(customerID, billID, billType, unit, month, year, amount, email, meterNo, dueDate, emailType)=>{
+const sendBillEmail = async(customerID, billID, billType, unit, month, year, amount, email, meterNo, dueDate, emailType)=>{
 
   // Generate test SMTP service account from ethereal.email
   // Only needed if you don't have a real mail account for testing
@@ -67,6 +67,8 @@ const mail = async(customerID, billID, billType, unit, month, year, amount, emai
     html: emailMessage, // html body
   });
 
+  console.log(sendMailNow)
+
   console.log("Message sent: %s", sendMailNow.messageId);
   // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
 
@@ -75,4 +77,4 @@ const mail = async(customerID, billID, billType, unit, month, year, amount, emai
   // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 }
 
-module.exports = {mail};
+module.exports = {sendBillEmail};
