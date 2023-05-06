@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const bodyParser = require("body-parser");
 const db = require("./configs/DBconnection");
 const dotenv = require("dotenv");
 const authRoutes = require('./routes/authRoutes');
@@ -12,8 +11,7 @@ db.connect(function(err) {
   console.log("Connected!");
 });
 
-app.use(express.json());
-app.use(bodyParser.json())
+app.use(express.json()); //Used to parse JSON bodies
 dotenv.config();
 
 db.query(`CREATE TABLE IF NOT EXISTS user (id VARCHAR(225) PRIMARY KEY, name TINYTEXT NOT NULL, email VARCHAR(30) NOT NULL UNIQUE KEY, password VARCHAR(225) NOT NULL, role VARCHAR(225) NOT NULL, mobileNo VARCHAR(20) NOT NULL, address MEDIUMTEXT, meterNo VARCHAR(225) UNIQUE KEY);`, 

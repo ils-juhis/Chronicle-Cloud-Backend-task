@@ -20,3 +20,7 @@ Admin
 	•	Admin enters the current readings to generate a bill.
 	•	The system confirms the bill generation.
 	•	The generated bill is saved as a record for despatch to the customer on the due date.
+
+
+##### in MySQL query --> ?? is used for table names and column names ? is used for normal values like parameter value in where clause.
+##### body-parser extracts the entire body portion of an incoming request stream and exposes it on req.body.
