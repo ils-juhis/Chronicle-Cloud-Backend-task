@@ -1,0 +1,4 @@
+* in MySQL query --> ?? is used for table names and column names ? is used for normal values like parameter value in where clause.
+* body-parser extracts the entire body portion of an incoming request stream and exposes it on req.body.
+
+
