@@ -1,4 +1,37 @@
 * in MySQL query --> ?? is used for table names and column names ? is used for normal values like parameter value in where clause.
 * body-parser extracts the entire body portion of an incoming request stream and exposes it on req.body.
+* to change node version install nvm module
+* Optional chaining (?.)
+The optional chaining (?.) operator accesses an object's property or calls a function. If the object accessed or function called using this operator is undefined or null, the expression short circuits and evaluates to undefined instead of throwing an error.
+
+* Refresh token and Access token
+--> Access token
+    -- sent as as Json
+    -- client stores in memory
+    -- Do not store in local storage or cookie
+    --sent with every API request
+    -- client uses for API Access until expires
+    -- new token issued at refresh request
+
+--> Refresh Token 
+    -- sent as httponly cookie
+    -- not accessible via Json
+    -- must have expiry at some point
+    -- sent to request new access token
+    -- verified with endpoints and databases
+    -- must be allowed to expire or logout 
+
+--> Refresh token  rotation
+    New access token is issued with new refresh token.
+
+     Scenario of reuse detection: 
+        1) User logs in but never uses RT and does not logout 
+        2) RT is stolen
+        3) If 1 & 2, reuse detection is needed to clear all RTs when user logs in
 
 
+refresh controllers
+middlewares
+credentials.js
+errorHandler.js
+logEvents.js

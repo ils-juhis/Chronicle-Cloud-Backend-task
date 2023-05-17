@@ -8,21 +8,23 @@ let generateToken = async (user) => {
 		const accessToken = jwt.sign(
 			payload,
 			process.env.JWT_SECRET,
-			{ expiresIn: "7d" }
+			{ expiresIn: "30s" }
 		);
 
-		db.query(`DELETE FROM user WHERE id='${user.id}');`, function (err, result){
+		const newRefreshToken = jwt.sign(
+			payload,
+			process.env.REFRESH_JWT_SECRET,
+			{ expiresIn: "1d" }
+		);
+
+		db.query(`INSERT INTO tokens VALUES ('${user.id}', "${newRefreshToken}");`, function (err, result){
 
 		})
 
-		db.query(`INSERT INTO tokens VALUES ('${user.id}', "${accessToken}");`, function (err, result){
-
-		})
-
-		return accessToken;
+		return [accessToken, newRefreshToken];
 		
 	} catch (err) {
-		console.log("unable to generate token.")
+		console.log(err)
 	}
 };
 

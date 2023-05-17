@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const db = require("./configs/DBconnection");
 const dotenv = require("dotenv");
+const cookieParser = require('cookie-parser');
 const authRoutes = require('./routes/authRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 
@@ -12,6 +13,7 @@ db.connect(function(err) {
 });
 
 app.use(express.json()); //Used to parse JSON bodies
+app.use(cookieParser()); //middleware for cookies
 dotenv.config();
 
 db.query(`CREATE TABLE IF NOT EXISTS user (id VARCHAR(225) PRIMARY KEY, name TINYTEXT NOT NULL, email VARCHAR(30) NOT NULL UNIQUE KEY, password VARCHAR(225) NOT NULL, role VARCHAR(225) NOT NULL, mobileNo VARCHAR(20) NOT NULL, address MEDIUMTEXT, meterNo VARCHAR(225) UNIQUE KEY);`, 
@@ -21,7 +23,7 @@ db.query(`CREATE TABLE IF NOT EXISTS user (id VARCHAR(225) PRIMARY KEY, name TIN
   console.log("user table created");
 });
 
-db.query(`CREATE TABLE IF NOT EXISTS tokens (id VARCHAR(225) PRIMARY KEY, token VARCHAR(225) NOT NULL);`, async function (error, results, fields) {
+db.query(`CREATE TABLE IF NOT EXISTS tokens (id VARCHAR(225) PRIMARY KEY, refreshToken VARCHAR(225) NOT NULL);`, async function (error, results, fields) {
   if (error) throw error;
   console.log("tokens table created");
 });

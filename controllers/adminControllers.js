@@ -11,9 +11,9 @@ const getCustomers = async (req, res)=>{
     try{
         db.query(`SELECT * FROM user WHERE role="customer";`, function (err, result){
             if(err){
-                return res.status(400).json({
+                return res.status(500).json({
                     status: "FAILED",
-                    message: err
+                    message: "Internal Server Error"
                 })
             }else{
                 return res.status(200).json({status:'SUCCESS', data: result})
@@ -55,14 +55,14 @@ const addCustomer = async(req, res) =>{
                 db.query(`INSERT INTO user VALUES ("${id}", "${name}", "${email}", "${hash}", "customer", "${mobileNo}", "${address}", "${meterID}");`, async function(err, result){
                     if(err){
                         
-                        return res.status(400).json({
+                        return res.status(500).json({
                             status: "FAILED",
                             message: err
                         })
                     }
 
                     customerLoginEmail(name, email, password)
-                    return res.status(200).json({status:'SUCCESS', user:{
+                    return res.status(201).json({status:'SUCCESS', user:{
                         customerID: id,
                         name,
                         email,
@@ -84,11 +84,11 @@ const addCustomer = async(req, res) =>{
 
 const deleteCustomer = (req, res)=>{
     try {
-        
+
         const customerID = req.params.customerID;
         db.query(`DELETE FROM user where id = '${customerID}'`, function (err, result){
             if(err){
-                return res.status(400).json({
+                return res.status(500).json({
                     status: "FAILED",
                     message: err
                 })
@@ -111,7 +111,7 @@ const getAllBills = async (req, res)=>{
 
         db.query(`SELECT * FROM bills where customerID = '${customerID}'`, function (err, result){
             if(err){
-                return res.status(400).json({
+                return res.status(500).json({
                     status: "FAILED",
                     message: err
                 })
@@ -174,7 +174,7 @@ const addBill = async(req, res) =>{
             }else{
                 db.query(`SELECT * FROM user WHERE id="${customerID}";`, function (err, result){
                     if(err){
-                        return res.status(400).json({
+                        return res.status(500).json({
                             status: 'FAILED',
                             message: err
                         })

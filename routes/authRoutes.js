@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const authControllers = require("../controllers/authControllers");
-const authorize = require('../middlewares/authMiddleware');
 const {body} = require('express-validator')
 
 let signupValidation = [
@@ -46,11 +45,11 @@ router.post("/signup", signupValidation, authControllers.signUpAdmin)
 //login
 router.post("/login",  emailValidation, authControllers.login)
 
-//check logged in
-router.get("/loggedin", authorize(), authControllers.loggedIn)
+//refresh token
+router.get("/refresh-token", authControllers.refreshToken)
 
 //logout
-router.get("/logout", authorize(), authControllers.logout)
+router.get("/logout", authControllers.logout)
 
 //forgot password
 router.post("/forgot-pwd",emailValidation, authControllers.forgotPassword)
